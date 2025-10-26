@@ -32,6 +32,45 @@ function addFogs(fogs) {
   });
 }
 
+
+// Portraits bar
+const characterBar = document.getElementById("character-bar");
+const profileOverlay = document.getElementById("profile-overlay");
+const profileImg = document.getElementById("profile-img");
+
+const characters = [
+  "Avvocato",
+  "Custode",
+  "Dottore",
+  "Giornalista",
+  "Giudice",
+  "Ingegnere",
+  "Manager",
+  "Poliziotto",
+  "Prete",
+  "Segretaria"
+];
+
+// Add small portraits to the bar
+characters.forEach(speaker => {
+  const img = document.createElement("img");
+  img.src = `assets/pic/${speaker}.png`;
+  img.dataset.name = speaker;
+
+  img.addEventListener("click", () => {
+    profileImg.src = `assets/profile/${speaker}.png`;
+    profileOverlay.style.display = "flex";
+  });
+
+  characterBar.appendChild(img);
+});
+
+// Close overlay when clicked
+profileOverlay.addEventListener("click", () => {
+  profileOverlay.style.display = "none";
+});
+
+
 // Load scenes.json
 fetch('data/scenes.json')
   .then(response => response.json())
@@ -77,23 +116,34 @@ let currentScene = null;
 let isTyping = false;
 let typingTimeout = null;
 let lastSpeaker = null;
+const speakerSides = {}; // help reset each scene and store sides for each speaker globally
 
 
 // Start dialogue
 function startDialogue(scene) {
   if (!scene.dialogue || scene.dialogue.length === 0) return;
 
+  // stop any previous typing
+  if (typingTimeout) clearTimeout(typingTimeout);
+  isTyping = false;
+
   currentScene = scene;
   currentDialogueIndex = 0;
   lastSpeaker = null;
 
+  // clear bubbles from previous scene
+  const container = document.getElementById("dialogue-container");
+  container.innerHTML = "";
+  // reset speaker sides for this scene
+  Object.keys(speakerSides).forEach(key => delete speakerSides[key]);
+
+  // show the box and start
   const dialogueBox = document.getElementById("dialogue-box")
   dialogueBox.style.display = "block";
   showNextDialogueLine();
 }
 
 // Show the next line of dialogue
-const speakerSides = {}; // store sides for each speaker globally
 function showNextDialogueLine() {
   if (!currentScene) return;
   const dialogue = currentScene.dialogue[currentDialogueIndex];
