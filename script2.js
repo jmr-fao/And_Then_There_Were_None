@@ -70,40 +70,116 @@ function addMarker(scene) {
   mapContainer.appendChild(marker);
 }
 
-// Show dialogue and unlock next scene
-function showDialogue(scene) {
-  dialogueBox.style.display = "block";
-  dialogueText.textContent = scene.dialogue;
 
-  nextBtn.onclick = () => {
-    dialogueBox.style.display = "none";
-    if (scene.next_scene) checkPasswordAndUnlock(scene);
-  };
+// Show dialogue sequence for a scene
+let currentScene = null;
+let currentDialogueIndex = 0;
+let typingTimeout = null;
+let isTyping = false;
+
+function showDialogue(scene) {
+  currentScene = scene;
+  currentDialogueIndex = 0;
+
+  dialogueBox.style.display = "block";
+  showNextDialogueLine();
 }
 
+// Show the next line of dialogue
+function showNextDialogueLine() {
+  const dialogue = currentScene.dialogue[currentDialogueIndex];
+
+  // If no more lines, close dialogue and go to password
+  if (!dialogue) {
+    dialogueBox.style.display = "none";
+    if (currentScene.next_scene) checkPasswordAndUnlock(currentScene);
+    return;
+  }
+
+  // Show speaker and text
+  const speakerElem = document.getElementById("speaker-name");
+  const textElem = document.getElementById("dialogue-text");
+
+  if (typeof dialogue === "string") {
+    // Handle old single-line format
+    speakerElem.textContent = "";
+    textElem.textContent = dialogue;
+  } else {
+    speakerElem.textContent = dialogue.speaker || "";
+    textElem.textContent = dialogue.text;
+  }
+
+  currentDialogueIndex++;
+}
+
+// Go to next line when clicking "Avanti"
+nextBtn.onclick = showNextDialogueLine;
+
+// unlock next scene
 function checkPasswordAndUnlock(scene) {
   const nextScene = scenes.find(s => s.id === scene.next_scene);
   if (!nextScene) return;
 
   // If no password required, unlock immediately
   if (!scene.password || scene.password.trim() === "") {
-    addMarker(nextScene);
+    // addMarker(nextScene);
+    unlockScene(nextScene);
     return;
   }
 
-  // Ask for the password
-  const userInput = prompt("Inserisci la parola chiave per sbloccare il prossimo luogo:");
+  // Show modal
+  const modal = document.getElementById("password-modal");
+  const input = document.getElementById("password-input");
+  const submitBtn = document.getElementById("password-submit");
+  const cancelBtn = document.getElementById("password-cancel");
 
-  if (userInput && userInput.toLowerCase() === scene.password.toLowerCase()) {
-    unlockScene(nextScene);
-  } else {
-    alert("Password errata. Riprova!");
-  }
+  modal.style.display = "block";
+  input.value = "";
+  input.focus();
+
+  const closeModal = () => {
+    modal.style.display = "none";
+    submitBtn.onclick = null;
+    cancelBtn.onclick = null;
+  };
+
+  submitBtn.onclick = () => {
+    const userInput = input.value.trim().toLowerCase();
+    if (userInput === scene.password.toLowerCase()) {
+      closeModal();
+      unlockScene(nextScene);
+    } else {
+      input.value = "";
+      input.placeholder = "Password errata!";
+    }
+  };
+
+  cancelBtn.onclick = closeModal;
 }
 
 function unlockScene(scene) {
   scene.unlocked = true;
   addMarker(scene);
-
-  alert(`Hai sbloccato: ${scene.name}!`);
+  showUnlockAlert(scene.name);
 }
+
+function showUnlockAlert(sceneName) {
+  const alertBox = document.getElementById("unlock-alert");
+  const alertText = document.getElementById("unlock-alert-text");
+  alertText.textContent = `Hai sbloccato: ${sceneName}!`;
+
+  alertBox.classList.add("show");
+
+  // Hide after 2.5s or if clicked
+  const hide = () => {
+    alertBox.classList.remove("show");
+    setTimeout(() => (alertBox.style.display = "none"), 400);
+    alertBox.removeEventListener("click", hide);
+  };
+
+  alertBox.style.display = "block";
+  alertBox.addEventListener("click", hide);
+
+  setTimeout(hide, 2500);
+}
+

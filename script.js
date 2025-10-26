@@ -70,24 +70,110 @@ function addMarker(scene) {
   mapContainer.appendChild(marker);
 }
 
-// Show dialogue and unlock next scene
-function showDialogue(scene) {
-  dialogueBox.style.display = "block";
-  dialogueText.textContent = scene.dialogue;
 
-  nextBtn.onclick = () => {
-    dialogueBox.style.display = "none";
-    if (scene.next_scene) checkPasswordAndUnlock(scene);
-  };
+// Show dialogue sequence for a scene
+let currentScene = null;
+let currentDialogueIndex = 0;
+let typingTimeout = null;
+let isTyping = false;
+
+function showDialogue(scene) {
+  currentScene = scene;
+  currentDialogueIndex = 0;
+
+  dialogueBox.style.display = "block";
+  showNextDialogueLine();
 }
 
+// Show the next line of dialogue
+function showNextDialogueLine() {
+  // If text is still typing, skip to full text
+  if (isTyping) {
+    finishTyping();
+    return;
+  }
+
+  const dialogue = currentScene.dialogue[currentDialogueIndex];
+
+  // If no more lines, close dialogue and go to password
+  if (!dialogue) {
+    dialogueBox.style.display = "none";
+    if (currentScene.next_scene) checkPasswordAndUnlock(currentScene);
+    return;
+  }
+
+  // Show speaker and text
+  const speakerElem = document.getElementById("speaker-name");
+  const textElem = document.getElementById("dialogue-text");
+
+  if (typeof dialogue === "string") {
+    // Handle old single-line format
+    speakerElem.textContent = "";
+    startTyping(dialogue, textElem);
+  } else {
+    speakerElem.textContent = dialogue.speaker || "";
+    startTyping(dialogue.text, textElem);
+  }
+
+  currentDialogueIndex++;
+}
+
+// Typing animation
+function startTyping(text, element) {
+  element.textContent = "";
+  let i = 0;
+  isTyping = true;
+  nextBtn.disabled = false;
+
+  function typeChar() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      typingTimeout = setTimeout(typeChar, 25); // speed (ms per character)
+    } else {
+      finishTyping();
+    }
+  }
+
+  typeChar();
+}
+
+// Finish typing immediately
+function finishTyping() {
+  clearTimeout(typingTimeout);
+
+  const dialogue = currentScene.dialogue[currentDialogueIndex - 1];
+  const textElem = document.getElementById("dialogue-text");
+
+  // Show the full line immediately
+  if (typeof dialogue === "string") {
+    textElem.textContent = dialogue;
+  } else {
+    textElem.textContent = dialogue.text;
+  }
+
+  isTyping = false;
+}
+
+
+// Go to next line when clicking "Avanti"
+nextBtn.onclick = () => {
+  if (isTyping) {
+    finishTyping(); // show full line
+  } else {
+    showNextDialogueLine(); // go to next
+  }
+};
+
+// unlock next scene
 function checkPasswordAndUnlock(scene) {
   const nextScene = scenes.find(s => s.id === scene.next_scene);
   if (!nextScene) return;
 
   // If no password required, unlock immediately
   if (!scene.password || scene.password.trim() === "") {
-    addMarker(nextScene);
+    // addMarker(nextScene);
+    unlockScene(nextScene);
     return;
   }
 
@@ -121,14 +207,14 @@ function checkPasswordAndUnlock(scene) {
   cancelBtn.onclick = closeModal;
 }
 
+// Unlocks and shows alert
 function unlockScene(scene) {
   scene.unlocked = true;
   addMarker(scene);
-
-  //alert(`Hai sbloccato: ${scene.name}!`);
   showUnlockAlert(scene.name);
 }
 
+// Smooth alert
 function showUnlockAlert(sceneName) {
   const alertBox = document.getElementById("unlock-alert");
   const alertText = document.getElementById("unlock-alert-text");

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Murder Night</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,7 +23,8 @@
 
   <!-- Dialogo -->
   <div id="dialogue-box" style="position:fixed; bottom:350px; left:250px; width:300px; padding:10px; background:#f4e1c1; border:2px solid #333; display:none;">
-    <p id="dialogue-text"></p>
+    <div id="speaker-name" style="font-weight:bold; margin-bottom:5px;"></div>
+    <div id="dialogue-text" style="min-height:60px;"></div>
     <button id="next-btn">Avanti</button>
   </div>
 

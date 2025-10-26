@@ -8,18 +8,26 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/ship1.png",
     "password": "",
-    "dialogue": "Benvenuti all'isola. Qui inizia la storia."
+    "dialogue":  [
+        {"speaker": "Contessa", "text": "Grazie per esservi così cordialmente presentati, vi do quindi un caloroso benvenuto nella mia isola felice!"},
+        {"speaker": "Contessa", "text": "Vi concedo una mappa per orientarvi tra le strade dell’isola, controllatela sempre per bene all'occorrenza, potrà esservi d'aiuto quando meno ve lo aspettate!"},
+        {"speaker": "Contessa", "text": "Ora andate, miei gentili ospiti, e sistematevi nella mia dimora.\nChe questo luogo vi conceda pace, o… almeno, ciò che ne resta!"}
+    ]
   },
   {
     "id": "casa1",
-    "name": "Casa (1ª visita)",
+    "name": "Casa",
     "coords": [554, 502],
     "unlocked": false,
     "next_scene": "radici",
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home1.png",
     "password": "radici",
-    "dialogue": "La serata ha inizio. Ma qualcosa non quadra..."
+    "dialogue": [
+        {"speaker": "Contessa", "text": "Eccovi nella mia umile abitazione, tutto è a vostra disposizione come se foste a casa vostra."},
+        {"speaker": "Contessa", "text": "Vi chiedo la cortesia di lasciare tutti i vostri effetti personali sul tavolo, il custode Paul disporrà i vostri oggetti nelle vostre stanze così che possiate liberarvi da ogni pensiero, e da ogni peso."},
+        {"speaker": "Custode", "text": "Gentilissimi commensali, mentre mi trovavo impegnato a riordinar i vostri effetti, ho trovato appesa questa filastrocca che mia nonna aveva l'abitudine di recitare quando ero piccolo, voi ve la ricordate?"}
+    ]
   },
   {
     "id": "radici",
@@ -30,7 +38,18 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/whiskey1.png",
     "password": "parcheggio",
-    "dialogue": "Il prete è stato trovato morto..."
+    "dialogue": [
+        {"speaker": "Manager", "text": "Non capisco cosa sia successo, dunque quell'uomo è morto?"},
+        {"speaker": "Poliziotto", "text": "Sembra proprio di si mia cara milady. Lascio esprimere l'ultimo verdetto al dottore."},
+        {"speaker": "Dottore", "text": "Battito assente, respiro inesistente, segni iniziali di decomposizione: il nostro amico è stato richiamato dal principale in paradiso."},
+        {"speaker": "Giudice", "text": "Chissà se effettivamente vada in paradiso sir. Mi ricordo tempo addietro di aver dovuto giudicare un prete su alcune sue condotte, …diciamo non propriamente spirituali."},
+        {"speaker": "Giudice", "text": "Forse questo è il giudizio divino che spetta ai finti servitori come lui!"},
+        {"speaker": "Avvocato", "text": "Sarà, ma io al giudizio divino credo poco. Le uniche sentenze che contano le pronuncia la coscienza… quella umana, non quella celeste."},
+        {"speaker": "Avvocato", "text": "Secondo me, appesantito da troppa castità, il reverendo ha deciso di fermarsi da solo... e di offrire la sua verginità direttamente al principale!"},
+        {"speaker": "Ingegnera", "text": "Basta con queste stupide supposizioni, La verità non si trova nelle battute, ma solo nelle tracce scritte. Se non sbaglio il reverendo aveva un diario…"},
+        {"speaker": "Giudice", "text": "Il giudizio, signori… a volte arriva prima della chiamata."},
+        {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
+    ]
   },
   {
     "id": "parcheggio",
@@ -41,7 +60,15 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/carriage1.png",
     "password": "casa2",
-    "dialogue": "L'ingeniera è stata uccisa..."
+    "dialogue": [
+        {"speaker": "Segretaria", "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
+        {"speaker": "Medico", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
+        {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"},
+        {"speaker": "Giornalista", "text": "Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
+        {"speaker": "Avvocato", "text": "Signori, ho provato a comunicare con la radio, ma ovviamente non vuole saperne di rispondere. Ho provato più volte: solo rumore bianco… come se qualcuno avesse tagliato i fili."},
+        {"speaker": "Mangaer", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},
+        {"speaker": "Giudice", "text": "Il silenzio, signori, è una forma di verità. E quest'isola… non ama chi parla troppo."}
+    ]
   },
   {
     "id": "casa2",
@@ -52,7 +79,13 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home2.png",
     "password": "ponte",
-    "dialogue": "Oh mio dio la segretatia!!"
+    "dialogue": [
+        {"speaker": "Giudice", "text": "Penso che la situazione sia chiara a tutti, miei cari compagni. In questa casa non ci sono più padroni né ospiti. Ci sono solo imputati. E il processo è già iniziato."},
+        {"speaker": "Avvocato", "text": "Vorrà dire che saremo tutti vittime dello stesso giudizio. E allora, signor Giudice, non ci resta che prepararci… a recitare la nostra arringa finale."},
+        {"speaker": "Poliziotto", "text": "Non sono uno che si arrende così facilmente, la mia arringa di sicuro non sarà quella finale. [Pensiero]: avevo con me la mia rivoltella, dove diavolo è andata a finire?"},
+        {"speaker": "Medico", "text": "Mi chiedo se, per una volta nella mia vita, non mi toccherà curare anche le mie ferite… oltre a quelle degli altri."},
+        {"speaker": "Custode", "text": "Compagni… purtroppo anche il telegrafo è fuori uso. Ho controllato i cavi, sono tagliati. Potremmo provare un altro tentativo al faro, forse là c'è ancora un vecchio trasmettitore."}
+    ]
   },
   {
     "id": "ponte",
@@ -63,7 +96,17 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/lighthouse1.png",
     "password": "luperini",
-    "dialogue": "Povero giudice..."
+    "dialogue": [
+        {"speaker": "Custode", "text": "Avete sentito anche voi questo rumore? Sembrava… un oggetto pesante cadere nel fiume."},
+        {"speaker": "Manager", "text": "Comincio a credere che qualcuno di noi stia impazzendo. O forse… lo siamo già tutti."},
+        {"speaker": "Poliziotto", "text": "No, signora, non è follia. Credo proprio che quel qualcuno ci voglia uccidere, uno ad uno."},
+        {"speaker": "Avvocato", "text": "Negli occhi dei giustizieri si legge sempre la bramosia di voler fare giustizia a modo proprio, mi sto per caso sbagliando sir. Mimmi?"},
+        {"speaker": "Poliziotto", "text": "Un assassino agisce in base ad una giustizia distorta, mio caro Alex. La mia, di giustizia, opera solo per servire la legge."},
+        {"speaker": "Custode", "text": "A proposito di giustizia... non vi sembra che manchi qualcuno? Il giudice Magrarthur non è più con noi!"},
+        {"speaker": "Medico", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo. Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
+        {"speaker": "Poliziotto", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi. [pensiero] E' ancora carica con i tre proiettili…"},
+        {"speaker": "Custode", "text": "anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
+    ]
   },
   {
     "id": "luperini",
@@ -74,7 +117,13 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/sandwich1.png",
     "password": "",
-    "dialogue": "Anche il medico..."
+    "dialogue": [
+        {"speaker": "Giornalista", "text": "Sono offuscata dalla mia stessa mente, non so più fidarmi del mio giudizio. Ero sicura fosse Jefferson dall'inizio."},
+        {"speaker": "Manager", "text": "Mia cara Gaia, la invidio. Almeno lei riesce ancora a chiedersi se la sua testa funzioni. Io, invece, ho smesso di avere una coscienza."},
+        {"speaker": "Avvocato", "text": "Miss. Eyeangel, dalla coscienza non si può mai scappare: molti uomini desiderano morire in pace con la propria coscienza. Ma pochi, pochissimi, hanno davvero il coraggio di ascoltarla."},
+        {"speaker": "Custode", "text": "Già… e chissà se il nostro medico aveva mai avuto il coraggio di ascoltare la sua, considerando quello che ho trovato."},
+        {"speaker": "Poliziotto", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}
+    ]
   },
   {
     "id": "tazio",
@@ -85,6 +134,8 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/ship2.png",
     "password": "",
-    "dialogue": "WTF!?"
+    "dialogue": [
+        {"speaker": "", "text": "Quando il tempo finisce, le colpe cadono tutte insieme."}
+    ]
   }
 ]
