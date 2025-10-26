@@ -217,6 +217,18 @@ img {
   font-family: 'Cormorant Garamond', serif;/* same classic style, or pick another font 'Georgia', serif;  */
 }
 
+#speaker-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;       /* rounded corners */
+  object-fit: cover;        /* ensures the image fills the box nicely */
+  margin-right: 10px;
+}
+#speaker-info {
+  display: flex;
+  align-items: flex-start;
+}
+
 #next-btn {
   background-color: #3b2f2f;
   color: #f4e1c1;

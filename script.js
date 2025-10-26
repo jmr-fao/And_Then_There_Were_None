@@ -102,16 +102,20 @@ function showNextDialogueLine() {
     return;
   }
 
-  // Show speaker and text
+  // Show speaker, picture, and text
   const speakerElem = document.getElementById("speaker-name");
   const textElem = document.getElementById("dialogue-text");
+  const picElem = document.getElementById("speaker-pic");
 
   if (typeof dialogue === "string") {
     // Handle old single-line format
     speakerElem.textContent = "";
+    picElem.style.display = "none"; // hide image if no speaker
     startTyping(dialogue, textElem);
   } else {
     speakerElem.textContent = dialogue.speaker || "";
+    picElem.src = `assets/pic/${dialogue.speaker}.png`;
+    picElem.style.display = "block"; // show image
     startTyping(dialogue.text, textElem);
   }
 
