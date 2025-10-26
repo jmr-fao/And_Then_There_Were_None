@@ -1,0 +1,6 @@
+[
+  { "id": "fog_1", "src": "assets/fog/fog_1.png", "x": 0, "y": 550, "rotation": 0, "scale": 2 },
+  { "id": "fog_2", "src": "assets/fog/fog_2.png", "x": 0, "y": -250, "rotation": -180, "scale": 1 },
+  { "id": "fog_3", "src": "assets/fog/fog_1.png", "x": -340, "y": 250, "rotation": 90, "scale": 1 },
+  { "id": "fog_4", "src": "assets/fog/fog_2.png", "x": 340, "y": 250, "rotation": -90, "scale": 1 }
+]

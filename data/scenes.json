@@ -1,0 +1,90 @@
+[
+  {
+    "id": "perla_nera",
+    "name": "Perla Nera",
+    "coords": [495, 516],
+    "unlocked": true,
+    "next_scene": "casa1",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/ship1.png",
+    "password": "",
+    "dialogue": "Benvenuti all'isola. Qui inizia la storia."
+  },
+  {
+    "id": "casa1",
+    "name": "Casa (1ª visita)",
+    "coords": [554, 502],
+    "unlocked": false,
+    "next_scene": "radici",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/home1.png",
+    "password": "radici",
+    "dialogue": "La serata ha inizio. Ma qualcosa non quadra..."
+  },
+  {
+    "id": "radici",
+    "name": "Radici",
+    "coords": [564, 566],
+    "unlocked": false,
+    "next_scene": "parcheggio",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/whiskey1.png",
+    "password": "parcheggio",
+    "dialogue": "Il prete è stato trovato morto..."
+  },
+  {
+    "id": "parcheggio",
+    "name": "Parcheggio",
+    "coords": [198, 502],
+    "unlocked": false,
+    "next_scene": "casa2",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/carriage1.png",
+    "password": "casa2",
+    "dialogue": "L'ingeniera è stata uccisa..."
+  },
+  {
+    "id": "casa2",
+    "name": "Casa (2ª visita)",
+    "coords": [580, 522],
+    "unlocked": false,
+    "next_scene": "ponte",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/home2.png",
+    "password": "ponte",
+    "dialogue": "Oh mio dio la segretatia!!"
+  },
+  {
+    "id": "ponte",
+    "name": "Ponte Vecchio",
+    "coords": [1020, 584],
+    "unlocked": false,
+    "next_scene": "luperini",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/lighthouse1.png",
+    "password": "luperini",
+    "dialogue": "Povero giudice..."
+  },
+  {
+    "id": "luperini",
+    "name": "Luperini",
+    "coords": [738, 394],
+    "unlocked": false,
+    "next_scene": "tazio",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/sandwich1.png",
+    "password": "",
+    "dialogue": "Anche il medico..."
+  },
+  {
+    "id": "tazio",
+    "name": "Molo Tazio",
+    "coords": [1100, 440],
+    "unlocked": false,
+    "next_scene": "tazio",
+    "fog": "assets/fog/fog_scene.png",
+    "icon": "assets/icons/ship2.png",
+    "password": "",
+    "dialogue": "WTF!?"
+  }
+]

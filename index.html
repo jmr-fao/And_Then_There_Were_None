@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Murder Night</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Map -->
+  <div id="game-container">
+    <div id="map-container" style="position:relative;">
+      <img id="map" src="assets/base_map3.png" alt="Island Map">
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <h2>Personaggi</h2>
+      <div id="profiles"></div>
+    </div>
+  </div>
+
+  <!-- Dialogo -->
+  <div id="dialogue-box" style="position:fixed; bottom:350px; left:250px; width:300px; padding:10px; background:#f4e1c1; border:2px solid #333; display:none;">
+    <p id="dialogue-text"></p>
+    <button id="next-btn">Avanti</button>
+  </div>
+
+  <!-- Unlock Alert -->
+  <div id="unlock-alert" class="alert-box">
+    <p id="unlock-alert-text"></p>
+  </div>
+
+  <!-- Password Modal -->
+  <div id="password-modal" class="modal">
+    <div class="modal-content">
+      <h3>Parola chiave</h3>
+      <p>Inserisci la parola chiave per sbloccare il prossimo luogo:</p>
+      <input type="text" id="password-input" placeholder="Scrivi qui..." autocomplete="off">
+      <div class="modal-buttons">
+        <button id="password-submit">Conferma</button>
+        <button id="password-cancel">Annulla</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
