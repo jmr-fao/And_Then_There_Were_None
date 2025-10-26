@@ -3,6 +3,12 @@ const dialogueBox = document.getElementById("dialogue-box");
 const dialogueText = document.getElementById("dialogue-text");
 const nextBtn = document.getElementById("next-btn");
 
+
+// map dimension
+const baseMapWidth = 1188;   // original map pixel width
+const baseMapHeight = 1126;  // original map pixel height
+
+
 // Load fogs from JSON
 fetch('data/fog_side.json')
   .then(response => response.json())
@@ -17,15 +23,16 @@ function addFogs(fogs) {
     fogImg.classList.add("fog");
 
     fogImg.style.position = "absolute";
-    fogImg.style.left = fog.x + "px";
-    fogImg.style.top = fog.y + "px";
-    
     fogImg.style.opacity = "0.85";  // Adjust for subtle transparency
     fogImg.style.zIndex = "5";
     fogImg.style.pointerEvents = "none"; // Prevent blocking clicks
 
-    //fogImg.style.setProperty('--rotation', `${fog.rotation}deg`);
-    //fogImg.style.setProperty('--scale', fog.scale);
+    // Convert pixel coords to percentages
+    const xPct = (fog.x / baseMapWidth) * 100;
+    const yPct = (fog.y / baseMapHeight) * 100;
+    fogImg.style.left = `${xPct}%`;
+    fogImg.style.top = `${yPct}%`;
+
     fogImg.style.transform = `rotate(${fog.rotation}deg) scale(${fog.scale})`;
 
     mapContainer.appendChild(fogImg);
@@ -71,6 +78,8 @@ profileOverlay.addEventListener("click", () => {
 });
 
 
+
+
 // Load scenes.json
 fetch('data/scenes.json')
   .then(response => response.json())
@@ -91,19 +100,29 @@ function initMarkers() {
 
 // Function to create a marker
 function addMarker(scene) {
+  const map = document.getElementById("map");
+  const mapContainer = document.getElementById("map-container");
+
   const marker = document.createElement("img");
 
   marker.src = scene.icon;
+
   marker.id = `marker_${scene.id}`;
   marker.style.position = "absolute";
-  marker.style.left = scene.coords[0] + "px";
-  marker.style.top = scene.coords[1] + "px";
   marker.style.width = "32px";
   marker.style.height = "32px";
   marker.style.cursor = "pointer";
   marker.style.zIndex = "10";
   marker.title = scene.id;
 
+  // Convert pixel coords to percentages
+  const xPct = (scene.coords[0] / baseMapWidth) * 100;
+  const yPct = (scene.coords[1] / baseMapHeight) * 100;
+
+  marker.style.left = `${xPct}%`;
+  marker.style.top = `${yPct}%`;
+  marker.style.transform = "translate(-50%, -50%)"; // center the icon
+  
   marker.addEventListener("click", () => startDialogue(scene));
 
   mapContainer.appendChild(marker);
