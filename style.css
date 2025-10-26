@@ -188,33 +188,75 @@ img {
   position: fixed;
   bottom: 20px;
   left: 50%;
+  transform: translateX(-50%);
   width: 90%;
-  max-width: 400px;
-  padding: 16px;
-  background: rgba(255, 248, 240, 0.95);
+  max-width: 450px;
+  padding: 12px;
+  background: rgba(224, 170, 75, 0.694);
   border: 2px solid #333;
-  border-radius: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   font-family: 'Special Elite', cursive; /*'Cormorant Garamond', serif;*/
   color: #2b1f13;
-  line-height: 1.2; /* increases interline space */
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
   transition: opacity 0.4s ease-in-out;
-  transform: translateX(-50%);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: none; /* hide initially */
+}
+
+#dialogue-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto; /* scroll if conversation is long */
+}
+
+.speech-bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  line-height: 1.5;
+  font-size: 1.05em;
+  background: rgba(244, 225, 193, 0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.speech-left {
+  background: #f4e1c1;
+  align-self: flex-start;
+}
+
+.speech-right {
+  background: #d9f4e1;
+  align-self: flex-end;
+}
+
+.speech-bubble img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+
+.speaker-name {
+  font-weight: bold;       /* make the name bold */
+  font-size: 1.5em;        /* slightly larger than the dialogue */
+  margin-bottom: 6px;      /* spacing below the name */
+  color: #4a2f1b;          /* a slightly darker color for emphasis */
+  font-family: 'Cormorant Garamond', serif;/* same classic style, or pick another font 'Georgia', serif;  */
 }
 
 #dialogue-text {
   font-size: 1.05em;      /* slightly smaller than the speaker */
   line-height: 1.6;       /* spacing between lines for readability */
   color: #2b1f13;         /* standard text color */
-}
-
-#speaker-name {
-  font-weight: bold;       /* make the name bold */
-  font-size: 1.5em;        /* slightly larger than the dialogue */
-  margin-bottom: 6px;      /* spacing below the name */
-  color: #4a2f1b;          /* a slightly darker color for emphasis */
-  font-family: 'Cormorant Garamond', serif;/* same classic style, or pick another font 'Georgia', serif;  */
 }
 
 #speaker-pic {
@@ -224,6 +266,7 @@ img {
   object-fit: cover;        /* ensures the image fills the box nicely */
   margin-right: 10px;
 }
+
 #speaker-info {
   display: flex;
   align-items: flex-start;

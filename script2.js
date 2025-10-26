@@ -87,6 +87,12 @@ function showDialogue(scene) {
 
 // Show the next line of dialogue
 function showNextDialogueLine() {
+  // If text is still typing, skip to full text
+  if (isTyping) {
+    finishTyping();
+    return;
+  }
+
   const dialogue = currentScene.dialogue[currentDialogueIndex];
 
   // If no more lines, close dialogue and go to password
@@ -96,24 +102,72 @@ function showNextDialogueLine() {
     return;
   }
 
-  // Show speaker and text
+  // Show speaker, picture, and text
   const speakerElem = document.getElementById("speaker-name");
   const textElem = document.getElementById("dialogue-text");
+  const picElem = document.getElementById("speaker-pic");
 
   if (typeof dialogue === "string") {
     // Handle old single-line format
     speakerElem.textContent = "";
-    textElem.textContent = dialogue;
+    picElem.style.display = "none"; // hide image if no speaker
+    startTyping(dialogue, textElem);
   } else {
     speakerElem.textContent = dialogue.speaker || "";
-    textElem.textContent = dialogue.text;
+    picElem.src = `assets/pic/${dialogue.speaker}.png`;
+    picElem.style.display = "block"; // show image
+    startTyping(dialogue.text, textElem);
   }
 
   currentDialogueIndex++;
 }
 
+// Typing animation
+function startTyping(text, element) {
+  element.textContent = "";
+  let i = 0;
+  isTyping = true;
+  nextBtn.disabled = false;
+
+  function typeChar() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      typingTimeout = setTimeout(typeChar, 25); // speed (ms per character)
+    } else {
+      finishTyping();
+    }
+  }
+
+  typeChar();
+}
+
+// Finish typing immediately
+function finishTyping() {
+  clearTimeout(typingTimeout);
+
+  const dialogue = currentScene.dialogue[currentDialogueIndex - 1];
+  const textElem = document.getElementById("dialogue-text");
+
+  // Show the full line immediately
+  if (typeof dialogue === "string") {
+    textElem.textContent = dialogue;
+  } else {
+    textElem.textContent = dialogue.text;
+  }
+
+  isTyping = false;
+}
+
+
 // Go to next line when clicking "Avanti"
-nextBtn.onclick = showNextDialogueLine;
+nextBtn.onclick = () => {
+  if (isTyping) {
+    finishTyping(); // show full line
+  } else {
+    showNextDialogueLine(); // go to next
+  }
+};
 
 // unlock next scene
 function checkPasswordAndUnlock(scene) {
@@ -157,12 +211,14 @@ function checkPasswordAndUnlock(scene) {
   cancelBtn.onclick = closeModal;
 }
 
+// Unlocks and shows alert
 function unlockScene(scene) {
   scene.unlocked = true;
   addMarker(scene);
   showUnlockAlert(scene.name);
 }
 
+// Smooth alert
 function showUnlockAlert(sceneName) {
   const alertBox = document.getElementById("unlock-alert");
   const alertText = document.getElementById("unlock-alert-text");

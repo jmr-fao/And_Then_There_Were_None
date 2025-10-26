@@ -65,109 +65,147 @@ function addMarker(scene) {
   marker.style.zIndex = "10";
   marker.title = scene.id;
 
-  marker.addEventListener("click", () => showDialogue(scene));
+  marker.addEventListener("click", () => startDialogue(scene));
 
   mapContainer.appendChild(marker);
 }
 
 
 // Show dialogue sequence for a scene
-let currentScene = null;
 let currentDialogueIndex = 0;
-let typingTimeout = null;
+let currentScene = null;
 let isTyping = false;
+let typingTimeout = null;
+let lastSpeaker = null;
 
-function showDialogue(scene) {
+
+// Start dialogue
+function startDialogue(scene) {
+  if (!scene.dialogue || scene.dialogue.length === 0) return;
+
   currentScene = scene;
   currentDialogueIndex = 0;
+  lastSpeaker = null;
 
+  const dialogueBox = document.getElementById("dialogue-box")
   dialogueBox.style.display = "block";
   showNextDialogueLine();
 }
 
 // Show the next line of dialogue
+const speakerSides = {}; // store sides for each speaker globally
 function showNextDialogueLine() {
-  // If text is still typing, skip to full text
-  if (isTyping) {
-    finishTyping();
-    return;
-  }
-
+  if (!currentScene) return;
   const dialogue = currentScene.dialogue[currentDialogueIndex];
-
-  // If no more lines, close dialogue and go to password
+  const container = document.getElementById("dialogue-container");
+  
+  // End of dialogue
   if (!dialogue) {
-    dialogueBox.style.display = "none";
-    if (currentScene.next_scene) checkPasswordAndUnlock(currentScene);
+    // If a password is required for the next scene
+    if (currentScene.next_scene) {
+      checkPasswordAndUnlock(currentScene);
+    }
+    document.getElementById("dialogue-box").style.display = "none";
+    currentScene = null;
     return;
   }
 
-  // Show speaker, picture, and text
-  const speakerElem = document.getElementById("speaker-name");
-  const textElem = document.getElementById("dialogue-text");
-  const picElem = document.getElementById("speaker-pic");
+  // Create bubble
+  const bubble = document.createElement("div");
+  bubble.classList.add("speech-bubble");
 
-  if (typeof dialogue === "string") {
-    // Handle old single-line format
-    speakerElem.textContent = "";
-    picElem.style.display = "none"; // hide image if no speaker
-    startTyping(dialogue, textElem);
+  // Determine left/right
+  let sideClass;
+  if (speakerSides[dialogue.speaker]) {
+    sideClass = speakerSides[dialogue.speaker]; // use previous side
   } else {
-    speakerElem.textContent = dialogue.speaker || "";
-    picElem.src = `assets/pic/${dialogue.speaker}.png`;
-    picElem.style.display = "block"; // show image
-    startTyping(dialogue.text, textElem);
+    // Alternate sides if first time
+    sideClass = (Object.keys(speakerSides).length % 2 === 0) ? "speech-left" : "speech-right";
+    speakerSides[dialogue.speaker] = sideClass;
   }
+
+  bubble.classList.add(sideClass);
+
+  // Add speaker image
+  if (dialogue.speaker) {
+    const img = document.createElement("img");
+    img.src = `assets/pic/${dialogue.speaker}.png`;
+    bubble.appendChild(img);
+  }
+
+  // Add text container
+  const textContainer = document.createElement("div");
+  if (dialogue.speaker) {
+    const nameElem = document.createElement("div");
+    nameElem.classList.add("speaker-name");
+    nameElem.textContent = dialogue.speaker;
+    textContainer.appendChild(nameElem);
+  }
+
+  const textElem = document.createElement("div");
+  textContainer.appendChild(textElem);
+
+  bubble.appendChild(textContainer);
+  container.appendChild(bubble);
+
+  lastSpeaker = dialogue.speaker;
+
+  // Typing animation
+  typeText(dialogue.text, textElem, () => {});
 
   currentDialogueIndex++;
 }
 
+
 // Typing animation
-function startTyping(text, element) {
-  element.textContent = "";
-  let i = 0;
+function typeText(text, elem, callback) {
+  let index = 0;
+  elem.textContent = "";
   isTyping = true;
-  nextBtn.disabled = false;
 
   function typeChar() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      typingTimeout = setTimeout(typeChar, 25); // speed (ms per character)
+    elem.textContent += text[index];
+    index++;
+
+    // Scroll the container as text grows
+    const container = document.getElementById("dialogue-container");
+    container.scrollTop = container.scrollHeight;
+    
+    if (index < text.length) {
+      typingTimeout = setTimeout(typeChar, 30);
     } else {
-      finishTyping();
+      isTyping = false;
+      callback();
     }
   }
-
   typeChar();
 }
 
-// Finish typing immediately
-function finishTyping() {
-  clearTimeout(typingTimeout);
+// Next button behavior
+document.getElementById("next-btn").onclick = () => {
+  if (!currentScene) return; // do nothing if no scene active
 
-  const dialogue = currentScene.dialogue[currentDialogueIndex - 1];
-  const textElem = document.getElementById("dialogue-text");
-
-  // Show the full line immediately
-  if (typeof dialogue === "string") {
-    textElem.textContent = dialogue;
-  } else {
-    textElem.textContent = dialogue.text;
-  }
-
-  isTyping = false;
-}
-
-
-// Go to next line when clicking "Avanti"
-nextBtn.onclick = () => {
   if (isTyping) {
-    finishTyping(); // show full line
+    // finish typing immediately
+    clearTimeout(typingTimeout);
+    const dialogue = currentScene.dialogue[currentDialogueIndex - 1];
+    const container = document.getElementById("dialogue-container");
+    const bubbles = container.querySelectorAll(".speech-bubble");
+    const lastText = bubbles[bubbles.length - 1].querySelector("div:last-child div:last-child");
+    lastText.textContent = dialogue.text;
+    isTyping = false;
   } else {
-    showNextDialogueLine(); // go to next
+    showNextDialogueLine();
   }
 };
+
+
+
+
+
+
+
+
 
 // unlock next scene
 function checkPasswordAndUnlock(scene) {
