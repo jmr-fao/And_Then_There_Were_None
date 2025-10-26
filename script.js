@@ -14,19 +14,19 @@ const baseMapHeight = 1126;  // original map pixel height
 // Fog images
 const fogBottom = document.createElement("img");
 fogBottom.src = "assets/fog/fog_1.png";
-fogBottom.classList.add("fog", "fog-bottom");
+fogBottom.classList.add("fog");
 
 const fogTop = document.createElement("img");
 fogTop.src = "assets/fog/fog_2.png";
-fogTop.classList.add("fog", "fog-top");
+fogTop.classList.add("fog");
 
 const fogLeft = document.createElement("img");
 fogLeft.src = "assets/fog/fog_1.png";
-fogLeft.classList.add("fog", "fog-left");
+fogLeft.classList.add("fog");
 
 const fogRight = document.createElement("img");
 fogRight.src = "assets/fog/fog_2.png";
-fogRight.classList.add("fog", "fog-right");
+fogRight.classList.add("fog");
 
 // Common styles
 [fogTop, fogBottom, fogLeft, fogRight].forEach(fog => {
@@ -82,11 +82,6 @@ function positionFogs() {
 
 // Recalculate on window resize
 window.addEventListener("resize", positionFogs);
-
-
-
-
-
 
 
 
@@ -384,7 +379,7 @@ function showUnlockAlert(sceneName) {
 
   alertBox.classList.add("show");
 
-  // Hide after 2.5s or if clicked
+  // Hide after 2s or if clicked
   const hide = () => {
     alertBox.classList.remove("show");
     setTimeout(() => (alertBox.style.display = "none"), 400);
@@ -394,6 +389,6 @@ function showUnlockAlert(sceneName) {
   alertBox.style.display = "block";
   alertBox.addEventListener("click", hide);
 
-  setTimeout(hide, 2500);
+  setTimeout(hide, 2000);
 }
 

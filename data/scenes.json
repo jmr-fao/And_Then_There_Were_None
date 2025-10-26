@@ -5,7 +5,6 @@
     "coords": [495, 516],
     "unlocked": true,
     "next_scene": "casa1",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/ship1.png",
     "password": "",
     "dialogue":  [
@@ -34,10 +33,9 @@
     "name": "Radici",
     "coords": [564, 566],
     "unlocked": false,
-    "next_scene": "parcheggio",
-    "fog": "assets/fog/fog_scene.png",
+    "next_scene": "diario",
     "icon": "assets/icons/whiskey1.png",
-    "password": "parcheggio",
+    "password": "",
     "dialogue": [
         {"speaker": "Manager", "text": "Non capisco cosa sia successo, dunque quell'uomo è morto?"},
         {"speaker": "Poliziotto", "text": "Sembra proprio di si mia cara milady. Lascio esprimere l'ultimo verdetto al dottore."},
@@ -46,9 +44,20 @@
         {"speaker": "Giudice", "text": "Forse questo è il giudizio divino che spetta ai finti servitori come lui!"},
         {"speaker": "Avvocato", "text": "Sarà, ma io al giudizio divino credo poco. Le uniche sentenze che contano le pronuncia la coscienza… quella umana, non quella celeste."},
         {"speaker": "Avvocato", "text": "Secondo me, appesantito da troppa castità, il reverendo ha deciso di fermarsi da solo... e di offrire la sua verginità direttamente al principale!"},
-        {"speaker": "Ingegnere", "text": "Basta con queste stupide supposizioni, La verità non si trova nelle battute, ma solo nelle tracce scritte. Se non sbaglio il reverendo aveva un diario…"},
-        {"speaker": "Giudice", "text": "Il giudizio, signori… a volte arriva prima della chiamata."},
-        {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
+        {"speaker": "Ingegnere", "text": "Basta con queste stupide supposizioni, La verità non si trova nelle battute, ma solo nelle tracce scritte. Se non sbaglio il reverendo aveva un diario…"}
+    ]
+  },
+   {
+    "id": "diario",
+    "name": "Diario",
+    "coords": [574, 566],
+    "unlocked": false,
+    "next_scene": "parcheggio",
+    "icon": "assets/icons/diary1.png",
+    "password": "parcheggio",
+    "dialogue": [
+      {"speaker": "Giudice", "text": "Il giudizio, signori… a volte arriva prima della chiamata."},
+      {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
     ]
   },
   {
@@ -57,16 +66,15 @@
     "coords": [198, 502],
     "unlocked": false,
     "next_scene": "casa2",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/carriage1.png",
     "password": "casa2",
     "dialogue": [
         {"speaker": "Segretaria", "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
-        {"speaker": "Medico", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
+        {"speaker": "Dottore", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
         {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"},
         {"speaker": "Giornalista", "text": "Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
         {"speaker": "Avvocato", "text": "Signori, ho provato a comunicare con la radio, ma ovviamente non vuole saperne di rispondere. Ho provato più volte: solo rumore bianco… come se qualcuno avesse tagliato i fili."},
-        {"speaker": "Mangaer", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},
+        {"speaker": "Manager", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},
         {"speaker": "Giudice", "text": "Il silenzio, signori, è una forma di verità. E quest'isola… non ama chi parla troppo."}
     ]
   },
@@ -76,7 +84,6 @@
     "coords": [580, 522],
     "unlocked": false,
     "next_scene": "ponte",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home2.png",
     "password": "ponte",
     "dialogue": [
@@ -93,7 +100,6 @@
     "coords": [1020, 584],
     "unlocked": false,
     "next_scene": "luperini",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/lighthouse1.png",
     "password": "luperini",
     "dialogue": [
@@ -113,15 +119,25 @@
     "name": "Luperini",
     "coords": [738, 394],
     "unlocked": false,
-    "next_scene": "tazio",
-    "fog": "assets/fog/fog_scene.png",
+    "next_scene": "referto",
     "icon": "assets/icons/sandwich1.png",
     "password": "",
     "dialogue": [
         {"speaker": "Giornalista", "text": "Sono offuscata dalla mia stessa mente, non so più fidarmi del mio giudizio. Ero sicura fosse Jefferson dall'inizio."},
         {"speaker": "Manager", "text": "Mia cara Gaia, la invidio. Almeno lei riesce ancora a chiedersi se la sua testa funzioni. Io, invece, ho smesso di avere una coscienza."},
         {"speaker": "Avvocato", "text": "Miss. Eyeangel, dalla coscienza non si può mai scappare: molti uomini desiderano morire in pace con la propria coscienza. Ma pochi, pochissimi, hanno davvero il coraggio di ascoltarla."},
-        {"speaker": "Custode", "text": "Già… e chissà se il nostro medico aveva mai avuto il coraggio di ascoltare la sua, considerando quello che ho trovato."},
+        {"speaker": "Custode", "text": "Già… e chissà se il nostro medico aveva mai avuto il coraggio di ascoltare la sua, considerando quello che ho trovato."}
+    ]
+  },
+  {
+    "id": "referto",
+    "name": "Referto",
+    "coords": [748, 394],
+    "unlocked": false,
+    "next_scene": "tazio",
+    "icon": "assets/icons/referto1.png",
+    "password": "",
+    "dialogue": [
         {"speaker": "Poliziotto", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}
     ]
   },
@@ -131,7 +147,6 @@
     "coords": [1100, 440],
     "unlocked": false,
     "next_scene": "tazio",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/ship2.png",
     "password": "",
     "dialogue": [
