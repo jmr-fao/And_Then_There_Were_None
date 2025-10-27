@@ -56,7 +56,7 @@
     "icon": "assets/icons/diary1.png",
     "password": "parcheggio",
     "dialogue": [
-      {"speaker": "Giudice", "text": "Il giudizio, signori… a volte arriva prima della chiamata."},
+      {"speaker": "Giudice", "text": "[Sottovoce] Il giudizio, signori… a volte arriva prima della chiamata."},
       {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
     ]
   },
@@ -72,10 +72,10 @@
         {"speaker": "Segretaria", "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
         {"speaker": "Dottore", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
         {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"},
-        {"speaker": "Giornalista", "text": "Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
+        {"speaker": "Giornalista", "text": "[Pensiero] Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
         {"speaker": "Avvocato", "text": "Signori, ho provato a comunicare con la radio, ma ovviamente non vuole saperne di rispondere. Ho provato più volte: solo rumore bianco… come se qualcuno avesse tagliato i fili."},
         {"speaker": "Manager", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},
-        {"speaker": "Giudice", "text": "Il silenzio, signori, è una forma di verità. E quest'isola… non ama chi parla troppo."}
+        {"speaker": "Giudice", "text": "[lentamente, con calma gelida] Il silenzio, signori, è una forma di verità. E quest'isola… non ama chi parla troppo."}
     ]
   },
   {
@@ -111,9 +111,11 @@
         {"speaker": "Avvocato", "text": "Negli occhi dei giustizieri si legge sempre la bramosia di voler fare giustizia a modo proprio, mi sto per caso sbagliando sir. Mimmi?"},
         {"speaker": "Poliziotto", "text": "Un assassino agisce in base ad una giustizia distorta, mio caro Alex. La mia, di giustizia, opera solo per servire la legge."},
         {"speaker": "Custode", "text": "A proposito di giustizia... non vi sembra che manchi qualcuno? Il giudice Magrarthur non è più con noi!"},
-        {"speaker": "Dottore", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo. Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
-        {"speaker": "Poliziotto", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi. [pensiero] E' ancora carica con i tre proiettili…"},
-        {"speaker": "Custode", "text": "anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
+        {"speaker": "Dottore", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo."},
+        {"speaker": "Dottore", "text": "Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
+        {"speaker": "Poliziotto", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi."},
+        {"speaker": "Poliziotto", "text": "[pensiero] E' ancora carica con i tre proiettili…"},
+        {"speaker": "Custode", "text": "Anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
     ]
   },
   {
@@ -148,7 +150,7 @@
     "name": "Molo Tazio",
     "coords": [1100, 440],
     "unlocked": false,
-    "next_scene": "tazio",
+    "next_scene": "Salvezza?",
     "icon": "assets/icons/ship2.png",
     "password": "",
     "dialogue": [
