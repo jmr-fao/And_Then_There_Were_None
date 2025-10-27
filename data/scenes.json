@@ -55,6 +55,7 @@
     "next_scene": "parcheggio",
     "icon": "assets/icons/diary1.png",
     "password": "parcheggio",
+    "object": "assets/objects/diario.png",
     "dialogue": [
       {"speaker": "Giudice", "text": "[Sottovoce] Il giudizio, signori… a volte arriva prima della chiamata."},
       {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
@@ -65,13 +66,24 @@
     "name": "Parcheggio",
     "coords": [198, 502],
     "unlocked": false,
-    "next_scene": "casa2",
+    "next_scene": "verbale",
     "icon": "assets/icons/carriage1.png",
-    "password": "casa2",
+    "password": "",
     "dialogue": [
         {"speaker": "Segretaria", "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
         {"speaker": "Dottore", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
-        {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"},
+        {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"}
+    ]
+  },
+  {
+    "id": "verbale",
+    "name": "Verbale",
+    "coords": [218, 502],
+    "unlocked": false,
+    "next_scene": "casa2",
+    "icon": "assets/icons/referto1.png",
+    "password": "casa2",
+    "dialogue": [
         {"speaker": "Giornalista", "text": "[Pensiero] Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
         {"speaker": "Avvocato", "text": "Signori, ho provato a comunicare con la radio, ma ovviamente non vuole saperne di rispondere. Ho provato più volte: solo rumore bianco… come se qualcuno avesse tagliato i fili."},
         {"speaker": "Manager", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},

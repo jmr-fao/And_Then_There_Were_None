@@ -169,11 +169,39 @@ function addMarker(scene) {
   marker.style.top = `${yPct}%`;
   marker.style.transform = "translate(-50%, -50%)"; // center the icon
   
-  marker.addEventListener("click", () => startDialogue(scene));
+  marker.addEventListener("click", () => startScene(scene));
 
   mapContainer.appendChild(marker);
 }
 
+function startScene(scene) {
+  // Show object (if any), then dialogue
+  showObject(scene, () => startDialogue(scene));
+}
+
+// show object
+function showObject(scene, callback) {
+  const container = document.getElementById('object-container');
+  const img = document.getElementById('object-image');
+
+  if (!scene.object) {
+    // no object → start dialogue immediately
+    callback();
+    return;
+  }
+
+  img.src = scene.object;
+  container.classList.add('visible');
+
+  const onClick = () => {
+    container.classList.remove('visible');
+    container.removeEventListener('click', onClick);
+    // wait for fade-out
+    setTimeout(() => callback(), 500);
+  };
+
+  container.addEventListener('click', onClick);
+}
 
 // Show dialogue sequence for a scene
 let currentDialogueIndex = 0;
@@ -186,6 +214,7 @@ const speakerSides = {}; // help reset each scene and store sides for each speak
 
 // Start dialogue
 function startDialogue(scene) {
+  // if there is no dialogue
   if (!scene.dialogue || scene.dialogue.length === 0) return;
 
   // stop any previous typing
@@ -207,6 +236,7 @@ function startDialogue(scene) {
   dialogueBox.style.display = "block";
   showNextDialogueLine();
 }
+
 
 // Show the next line of dialogue
 function showNextDialogueLine() {
@@ -379,7 +409,7 @@ function showUnlockAlert(sceneName) {
 
   alertBox.classList.add("show");
 
-  // Hide after 2s or if clicked
+  // Hide after 1s or if clicked
   const hide = () => {
     alertBox.classList.remove("show");
     setTimeout(() => (alertBox.style.display = "none"), 400);
@@ -389,6 +419,6 @@ function showUnlockAlert(sceneName) {
   alertBox.style.display = "block";
   alertBox.addEventListener("click", hide);
 
-  setTimeout(hide, 2000);
+  setTimeout(hide, 1000);
 }
 

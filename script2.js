@@ -1,36 +1,130 @@
 const mapContainer = document.getElementById("map-container");
+const mapImg = document.getElementById("map");
 const dialogueBox = document.getElementById("dialogue-box");
 const dialogueText = document.getElementById("dialogue-text");
 const nextBtn = document.getElementById("next-btn");
 
-// Load fogs from JSON
-fetch('data/fog_side.json')
-  .then(response => response.json())
-  .then(fogs => addFogs(fogs))
-  .catch(err => console.error("Failed to load fogs.json:", err));
 
-function addFogs(fogs) {
-  fogs.forEach(fog => {
-    const fogImg = document.createElement("img");
-    fogImg.src = fog.src;
-    fogImg.id = fog.id;
-    fogImg.classList.add("fog");
+// map dimension
+const baseMapWidth = 1188;   // original map pixel width
+const baseMapHeight = 1126;  // original map pixel height
 
-    fogImg.style.position = "absolute";
-    fogImg.style.left = fog.x + "px";
-    fogImg.style.top = fog.y + "px";
-    
-    fogImg.style.opacity = "0.85";  // Adjust for subtle transparency
-    fogImg.style.zIndex = "5";
-    fogImg.style.pointerEvents = "none"; // Prevent blocking clicks
 
-    //fogImg.style.setProperty('--rotation', `${fog.rotation}deg`);
-    //fogImg.style.setProperty('--scale', fog.scale);
-    fogImg.style.transform = `rotate(${fog.rotation}deg) scale(${fog.scale})`;
+// Create fog elements
+// Fog images
+const fogBottom = document.createElement("img");
+fogBottom.src = "assets/fog/fog_1.png";
+fogBottom.classList.add("fog");
 
-    mapContainer.appendChild(fogImg);
-  });
+const fogTop = document.createElement("img");
+fogTop.src = "assets/fog/fog_2.png";
+fogTop.classList.add("fog");
+
+const fogLeft = document.createElement("img");
+fogLeft.src = "assets/fog/fog_1.png";
+fogLeft.classList.add("fog");
+
+const fogRight = document.createElement("img");
+fogRight.src = "assets/fog/fog_2.png";
+fogRight.classList.add("fog");
+
+// Common styles
+[fogTop, fogBottom, fogLeft, fogRight].forEach(fog => {
+  fog.style.position = "absolute";
+  fog.style.zIndex = "5";
+  fog.style.pointerEvents = "none";
+  mapContainer.appendChild(fog);
+});
+
+// Function to position all fogs around the map
+function positionFogs() {
+  const mapRect = mapImg.getBoundingClientRect();
+  const mapTop = mapImg.offsetTop;
+  const mapLeft = mapImg.offsetLeft;
+  const mapWidth = mapImg.offsetWidth;
+  const mapHeight = mapImg.offsetHeight;
+
+  // Top fog
+  fogTop.style.top = mapTop + "px";
+  fogTop.style.left = mapLeft + "px";
+  fogTop.style.width = mapWidth + "px";
+  fogTop.style.height = fogTop.naturalHeight * (mapWidth / fogTop.naturalWidth) + "px";
+  fogTop.style.transform = "rotate(180deg)";
+  fogTop.style.transformOrigin = "center";
+
+  // Bottom fog
+  fogBottom.style.top = mapTop + mapHeight - (fogBottom.naturalHeight * (mapWidth / fogBottom.naturalWidth)) + "px";
+  fogBottom.style.left = mapLeft + "px";
+  fogBottom.style.width = mapWidth + "px";
+  fogBottom.style.height = fogBottom.naturalHeight * (mapWidth / fogBottom.naturalWidth) + "px";
+  fogBottom.style.transform = "rotate(0deg)";
+  fogBottom.style.transformOrigin = "center";
+
+  // Left fog
+  fogLeft.style.top = mapTop + "px";
+  fogLeft.style.left = mapLeft - (fogLeft.naturalWidth * (mapHeight / fogLeft.naturalHeight)) + "px";
+  fogLeft.style.width = mapHeight + "px";
+  fogLeft.style.height = fogLeft.naturalWidth * (mapHeight / fogLeft.naturalHeight) + "px";
+  fogLeft.style.transform = "rotate(-90deg)";
+  fogLeft.style.transformOrigin = "top left";
+
+  // Right fog
+  fogRight.style.top = mapTop + "px";
+  fogRight.style.left = mapLeft + mapWidth + "px";
+  fogRight.style.width = mapHeight + "px";
+  fogRight.style.height = fogRight.naturalWidth * (mapHeight / fogRight.naturalHeight) + "px";
+  fogRight.style.transform = "rotate(90deg)";
+  fogRight.style.transformOrigin = "top left";
 }
+
+// Wait for all fogs to load then position
+[fogTop, fogBottom, fogLeft, fogRight].forEach(fog => fog.onload = positionFogs);
+
+// Recalculate on window resize
+window.addEventListener("resize", positionFogs);
+
+
+
+
+// Portraits bar
+const characterBar = document.getElementById("character-bar");
+const profileOverlay = document.getElementById("profile-overlay");
+const profileImg = document.getElementById("profile-img");
+
+const characters = [
+  "Avvocato",
+  "Custode",
+  "Dottore",
+  "Giornalista",
+  "Giudice",
+  "Ingegnere",
+  "Manager",
+  "Poliziotto",
+  "Prete",
+  "Segretaria"
+];
+
+// Add small portraits to the bar
+characters.forEach(speaker => {
+  const img = document.createElement("img");
+  img.src = `assets/pic/${speaker}.png`;
+  img.dataset.name = speaker;
+
+  img.addEventListener("click", () => {
+    profileImg.src = `assets/profile/${speaker}.png`;
+    profileOverlay.style.display = "flex";
+  });
+
+  characterBar.appendChild(img);
+});
+
+// Close overlay when clicked
+profileOverlay.addEventListener("click", () => {
+  profileOverlay.style.display = "none";
+});
+
+
+
 
 // Load scenes.json
 fetch('data/scenes.json')
@@ -52,19 +146,29 @@ function initMarkers() {
 
 // Function to create a marker
 function addMarker(scene) {
+  const map = document.getElementById("map");
+  const mapContainer = document.getElementById("map-container");
+
   const marker = document.createElement("img");
 
   marker.src = scene.icon;
+
   marker.id = `marker_${scene.id}`;
   marker.style.position = "absolute";
-  marker.style.left = scene.coords[0] + "px";
-  marker.style.top = scene.coords[1] + "px";
   marker.style.width = "32px";
   marker.style.height = "32px";
   marker.style.cursor = "pointer";
   marker.style.zIndex = "10";
   marker.title = scene.id;
 
+  // Convert pixel coords to percentages
+  const xPct = (scene.coords[0] / baseMapWidth) * 100;
+  const yPct = (scene.coords[1] / baseMapHeight) * 100;
+
+  marker.style.left = `${xPct}%`;
+  marker.style.top = `${yPct}%`;
+  marker.style.transform = "translate(-50%, -50%)"; // center the icon
+  
   marker.addEventListener("click", () => startDialogue(scene));
 
   mapContainer.appendChild(marker);
@@ -77,23 +181,34 @@ let currentScene = null;
 let isTyping = false;
 let typingTimeout = null;
 let lastSpeaker = null;
+const speakerSides = {}; // help reset each scene and store sides for each speaker globally
 
 
 // Start dialogue
 function startDialogue(scene) {
   if (!scene.dialogue || scene.dialogue.length === 0) return;
 
+  // stop any previous typing
+  if (typingTimeout) clearTimeout(typingTimeout);
+  isTyping = false;
+
   currentScene = scene;
   currentDialogueIndex = 0;
   lastSpeaker = null;
 
+  // clear bubbles from previous scene
+  const container = document.getElementById("dialogue-container");
+  container.innerHTML = "";
+  // reset speaker sides for this scene
+  Object.keys(speakerSides).forEach(key => delete speakerSides[key]);
+
+  // show the box and start
   const dialogueBox = document.getElementById("dialogue-box")
   dialogueBox.style.display = "block";
   showNextDialogueLine();
 }
 
 // Show the next line of dialogue
-const speakerSides = {}; // store sides for each speaker globally
 function showNextDialogueLine() {
   if (!currentScene) return;
   const dialogue = currentScene.dialogue[currentDialogueIndex];
@@ -264,7 +379,7 @@ function showUnlockAlert(sceneName) {
 
   alertBox.classList.add("show");
 
-  // Hide after 2.5s or if clicked
+  // Hide after 2s or if clicked
   const hide = () => {
     alertBox.classList.remove("show");
     setTimeout(() => (alertBox.style.display = "none"), 400);
@@ -274,6 +389,6 @@ function showUnlockAlert(sceneName) {
   alertBox.style.display = "block";
   alertBox.addEventListener("click", hide);
 
-  setTimeout(hide, 2500);
+  setTimeout(hide, 2000);
 }
 
