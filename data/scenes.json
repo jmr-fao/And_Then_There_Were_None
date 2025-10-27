@@ -89,9 +89,11 @@
     "dialogue": [
         {"speaker": "Giudice", "text": "Penso che la situazione sia chiara a tutti, miei cari compagni. In questa casa non ci sono più padroni né ospiti. Ci sono solo imputati. E il processo è già iniziato."},
         {"speaker": "Avvocato", "text": "Vorrà dire che saremo tutti vittime dello stesso giudizio. E allora, signor Giudice, non ci resta che prepararci… a recitare la nostra arringa finale."},
-        {"speaker": "Poliziotto", "text": "Non sono uno che si arrende così facilmente, la mia arringa di sicuro non sarà quella finale. [Pensiero]: avevo con me la mia rivoltella, dove diavolo è andata a finire?"},
-        {"speaker": "Medico", "text": "Mi chiedo se, per una volta nella mia vita, non mi toccherà curare anche le mie ferite… oltre a quelle degli altri."},
-        {"speaker": "Custode", "text": "Compagni… purtroppo anche il telegrafo è fuori uso. Ho controllato i cavi, sono tagliati. Potremmo provare un altro tentativo al faro, forse là c'è ancora un vecchio trasmettitore."}
+        {"speaker": "Poliziotto", "text": "Non sono uno che si arrende così facilmente, la mia arringa di sicuro non sarà quella finale."},
+        {"speaker": "Poliziotto", "text": "[Pensiero]: avevo con me la mia rivoltella, dove diavolo è andata a finire?"},
+        {"speaker": "Dottore", "text": "Mi chiedo se, per una volta nella mia vita, non mi toccherà curare anche le mie ferite… oltre a quelle degli altri."},
+        {"speaker": "Custode", "text": "Compagni… purtroppo anche il telegrafo è fuori uso. Ho controllato i cavi, sono tagliati."},
+        {"speaker": "Custode", "text": "Potremmo provare un altro tentativo al faro, forse là c'è ancora un vecchio trasmettitore."}
     ]
   },
   {
@@ -109,7 +111,7 @@
         {"speaker": "Avvocato", "text": "Negli occhi dei giustizieri si legge sempre la bramosia di voler fare giustizia a modo proprio, mi sto per caso sbagliando sir. Mimmi?"},
         {"speaker": "Poliziotto", "text": "Un assassino agisce in base ad una giustizia distorta, mio caro Alex. La mia, di giustizia, opera solo per servire la legge."},
         {"speaker": "Custode", "text": "A proposito di giustizia... non vi sembra che manchi qualcuno? Il giudice Magrarthur non è più con noi!"},
-        {"speaker": "Medico", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo. Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
+        {"speaker": "Dottore", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo. Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
         {"speaker": "Poliziotto", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi. [pensiero] E' ancora carica con i tre proiettili…"},
         {"speaker": "Custode", "text": "anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
     ]
