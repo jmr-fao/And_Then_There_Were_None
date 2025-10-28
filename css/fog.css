@@ -1,0 +1,8 @@
+.fog {
+  position: absolute;   /* Allows fog to float around the edges of the map */
+  pointer-events: none; /* Makes fog non-interactive (clicks pass through it) */
+  z-index: 5;           /* Below markers but above the map */
+  object-fit: cover;    /* Ensures fog fills its allocated area without distortion */
+  opacity: 0.85;        /* Semi-transparent fog for atmospheric effect */
+}
+

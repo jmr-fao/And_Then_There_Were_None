@@ -1,0 +1,96 @@
+/* === DIALOGUE BOX MAIN CONTAINER === */
+#dialogue-box {
+  position: fixed;                 /* Keeps the dialogue box fixed on the screen */
+  bottom: 20px;                    /* Positions it 20px above the bottom */
+  left: 50%;                       /* Centers it horizontally */
+  transform: translateX(-50%);     /* Offsets by 50% to truly center */
+  width: 90%;                      /* Takes 90% of the screen width */
+  max-width: 450px;                /* But no wider than 450px */
+  padding: 12px;                   /* Adds inner spacing */
+  background: rgba(224, 170, 75, 0.694); /* Warm translucent parchment color */
+  border: 2px solid #333;          /* Dark border for definition */
+  border-radius: 10px;             /* Rounded corners for a soft look */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+  font-family: 'Special Elite', cursive;  /* Vintage typewriter-style font */
+  color: #2b1f13;                  /* Dark brown text color */
+  display: flex;                   /* Uses flexbox layout */
+  flex-direction: column;          /* Arranges elements vertically */
+  gap: 8px;                        /* Space between child elements */
+  z-index: 20;                     /* Keeps it above most elements */
+  transition: opacity 0.4s ease-in-out; /* Smooth fade in/out effect */
+  display: none;                   /* Hidden by default */
+}
+
+/* === CONTAINER THAT HOLDS ALL SPEECH BUBBLES === */
+#dialogue-container {
+  display: flex;                   /* Flex layout for vertical stacking */
+  flex-direction: column;          /* Arranges speech bubbles top to bottom */
+  gap: 8px;                        /* Small gap between bubbles */
+  max-height: 300px;               /* Restricts height for long dialogues */
+  overflow-y: auto;                /* Adds scroll bar if too tall */
+}
+
+/* === BASE STYLE FOR EACH SPEECH BUBBLE === */
+.speech-bubble {
+  max-width: 70%;                  /* Prevents bubbles from spanning too wide */
+  padding: 10px 14px;              /* Inner spacing for text */
+  border-radius: 12px;             /* Rounded corners for friendly look */
+  line-height: 1.5;                /* Comfortable line spacing */
+  font-size: 1.05em;               /* Slightly larger than normal text */
+  background: rgba(244, 225, 193, 0.95); /* Light beige background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Soft shadow for 3D effect */
+  display: flex;                   /* Allows image + text to align horizontally */
+  align-items: flex-start;         /* Aligns content to the top */
+  gap: 8px;                        /* Space between portrait and text */
+}
+
+/* === LEFT-SIDE SPEAKER (NPC, for instance) === */
+.speech-left {
+  background: #f4e1c1;             /* Light warm tone for left speaker */
+  align-self: flex-start;          /* Aligns bubble to the left side */
+}
+
+/* === RIGHT-SIDE SPEAKER (player or main char) === */
+.speech-right {
+  background: #d9f4e1;             /* Slightly greenish tone for contrast */
+  align-self: flex-end;            /* Aligns bubble to the right side */
+}
+
+/* === CHARACTER IMAGE INSIDE BUBBLE === */
+.speech-bubble img {
+  width: 40px;                     /* Sets portrait width */
+  height: 40px;                    /* Sets portrait height */
+  border-radius: 6px;              /* Rounds corners slightly */
+  object-fit: cover;               /* Ensures image covers box neatly */
+}
+
+/* === CHARACTER NAME === */
+.speaker-name {
+  font-weight: bold;               /* Emphasizes speaker’s name */
+  font-size: 1.5em;                /* Larger than dialogue text */
+  margin-bottom: 6px;              /* Space below name */
+  color: #4a2f1b;                  /* Dark brown for distinction */
+  font-family: 'Cormorant Garamond', serif; /* Elegant serif font */
+}
+
+/* === MAIN DIALOGUE TEXT === */
+#dialogue-text {
+  font-size: 1.05em;               /* Slightly larger for readability */
+  line-height: 1.6;                /* Good line spacing */
+  color: #2b1f13;                  /* Consistent text color */
+}
+
+/* === SPEAKER PORTRAIT NEXT TO DIALOGUE === */
+#speaker-pic {
+  width: 60px;                     /* Bigger image for main speaker area */
+  height: 60px;                    /* Matches width */
+  border-radius: 8px;              /* Rounded corners */
+  object-fit: cover;               /* Keeps proportions */
+  margin-right: 10px;              /* Adds spacing between image and text */
+}
+
+/* === CONTAINER FOR IMAGE + NAME === */
+#speaker-info {
+  display: flex;                   /* Aligns image and name horizontally */
+  align-items: flex-start;         /* Aligns at the top */
+}

@@ -1,0 +1,89 @@
+/* character portraits in a neat horizontal bar that can scroll on smaller screens */
+#character-bar {
+  position: absolute;           /* Position relative to the map container */
+  top: 10px;                    /* 10px from the top of the map */
+  left: 50%;                    /* Center horizontally */
+  transform: translateX(-50%);  /* Adjust center based on its own width */
+  display: flex;                /* Arrange portrait icons in a row */
+  gap: 8px;                     /* Space between icons */
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  padding: 4px 8px;             /* Space around icons inside bar */
+  border-radius: 16px;          /* Rounded corners */
+  z-index: 20;                  /* Above the map but below overlays */
+  overflow-x: auto;             /* Scroll horizontally if icons exceed container width */
+}
+
+/* Portrait icons */
+#character-bar img {
+  width: 50px;                  /* Icon width */
+  height: 50px;                 /* Icon height */
+  border-radius: 50%;           /* Makes them circular */
+  cursor: pointer;              /* Pointer on hover */
+  border: 2px solid transparent; /* Default invisible border for hover effect */
+  flex-shrink: 0;               /* Prevent shrinking when container overflows */
+}
+
+/* hoover effect */
+#character-bar img:hover {
+  transform: scale(1.3);        /* Slightly enlarge icon */
+  border-color: #ffcc77;        /* Highlight border */
+}
+
+/* Tooltip name on hoover */
+#character-bar img::after {
+  content: attr(data-name);     /* Pulls character name from HTML attribute */
+  position: absolute;
+  bottom: -22px;                /* Position below icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);  /* Dark semi-transparent tooltip background */
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;          /* Prevent line breaks */
+  opacity: 0;                   /* Hidden by default */
+  pointer-events: none;         /* Tooltip doesn’t interfere with clicks */
+  transition: opacity 0.2s;     /* Smooth fade in */
+}
+
+#character-bar img:hover::after {
+  opacity: 1;                   /* Show tooltip on hover */
+}
+
+
+/* Profile */
+#profile-overlay {
+  position: fixed;              /* Stays fixed on viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;                 /* Full viewport width */
+  height: 100vh;                /* Full viewport height */
+  background: rgba(0,0,0,0.8);  /* Dark overlay for focus */
+  display: none;                /* Hidden until a profile is clicked */
+  justify-content: center;      /* Center horizontally */
+  align-items: flex-start;      /* Align top for long images, allows scroll */
+  padding: 20px;                /* Space between edges and image */
+  overflow-y: auto;             /* Vertical scrolling for tall images on mobile */
+  z-index: 100;                 /* On top of everything else */
+}
+
+/* Inner container for scrolling & centering */
+#profile-overlay .overlay-content {
+  max-width: 90%;               /* Limit width relative to viewport */
+  max-height: 90%;              /* Limit height relative to viewport */
+  display: flex;                
+  justify-content: center;      /* Horizontal centering */
+  align-items: flex-start;      /* Top alignment for scrollable images */
+  border-radius: 8px;           /* Slight rounding around container */
+}
+
+/* Enlarged image inside overlay */
+#profile-overlay img {
+  width: 80vw;                  /* Scales image relative to viewport width */
+  max-width: 600px;             /* Prevents it from getting too wide on large screens */
+  height: auto;                 /* Maintain aspect ratio */
+  border-radius: 12px;          /* Rounded corners */
+  display: block;               /* Remove inline spacing */
+}
+

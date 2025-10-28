@@ -1,0 +1,20 @@
+
+/* Map container for markers, fogs, character bar */
+#map-container {
+  position: relative;      /* Allows absolute positioning of children (markers, fog, etc.) */
+  flex: 1;                 /* If inside a flex parent, it grows to fill available space */
+  width: 100%;             /* Takes full horizontal space of its parent */
+  height: 100%;            /* Takes full vertical space of its parent */
+  max-width: 1200px;       /* Prevents the map from becoming too large on wide screens */
+  margin: 0 auto;          /* Centers the container horizontally (important for desktop) */
+  overflow: auto;          /* Enables scroll if the map or content overflows (e.g., on mobile) */
+}
+
+/* Map image */
+#map {
+  width: 100%;             /* Scales with container width */
+  height: 100%;            /* Matches container height */
+  object-fit: contain;     /* Preserves aspect ratio and fits entire image inside container */
+  display: block;          /* Removes inline spacing (useful when inside flex layouts) */
+  border: 2px solid black; /* Simple visual border for debugging or style */
+}

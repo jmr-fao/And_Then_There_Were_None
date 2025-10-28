@@ -1,0 +1,130 @@
+
+.modal {
+  display: none;                              /* Hidden by default; only shown when activated via JS */
+  position: fixed;                            /* Fixed relative to the viewport */
+  z-index: 100;                               /* Above most elements, so it overlays the page */
+  left: 0;                                    /* Top-left corner */
+  top: 0;
+  width: 100%;                                /* Full viewport width */
+  height: 100%;                               /* Full viewport height */
+  background-color: rgba(20, 20, 20, 0.7);  /* Semi-transparent dark background */
+  backdrop-filter: blur(3px);                 /* Blurs content behind the modal for focus effect */
+}
+
+.modal-content {
+  position: absolute;                           /* Positioned inside the modal overlay */
+  top: 50%;                                     /* Center vertically */
+  left: 50%;                                    /* Center horizontally */
+  transform: translate(-50%, -50%);             /* Actually center the box */
+  background-color: #f4e1c1;                  /* Light background */
+  border: 3px solid #2b1b12;                  /* Dark border */
+  border-radius: 12px;                          /* Rounded corners */
+  padding: 20px;                                /* Inner spacing */
+  text-align: center;                           /* Center text */
+  width: 280px;                                 /* Fixed width */
+  font-family: 'Georgia', serif;                /* Font for content */
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.6);   /* Drop shadow for 3D effect */
+}
+
+.modal-content h3 {
+  margin-top: 0;    /* Remove default top margin */
+  font-size: 20px;  /* Larger heading */
+  color: #3b2415; /* Dark text */
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #3b2415;
+}
+
+.modal-content input {
+  width: 80%;                   /* Input fills most of the modal */
+  padding: 8px;                 /* Inner spacing */
+  margin: 10px 0;               /* Vertical spacing */
+  border: 2px solid #3b2415;  /* Border color */
+  border-radius: 8px;           /* Rounded corners */
+  text-align: center;           /* Text centered inside input */
+  background-color: #fffaf0;  /* Slightly cream background */
+}
+
+/* ---- Bottoms ---- */
+.modal-buttons {
+  display: flex;                  /* Horizontal layout */
+  justify-content: space-between; /* Even spacing between buttons */
+  margin-top: 10px;               /* Space above buttons */
+}
+
+.modal-buttons button {
+  flex: 1;                                  /* Each button takes equal width */
+  margin: 0 5px;                            /* Horizontal spacing between buttons */
+  background-color: #3b2415;              /* Dark button */
+  color: #f4e1c1;                         /* Light text */
+  border: none;                             /* Remove default button border */
+  border-radius: 8px;                       /* Rounded corners */
+  padding: 8px 0;                           /* Vertical padding */
+  cursor: pointer;                          /* Pointer on hover */
+  transition: background 0.2s ease-in-out;  /* Smooth hover effect */
+}
+
+.modal-buttons button:hover {
+  background-color: #5a3922; /* Darker brown on hover */
+}
+
+
+/* ---- Alert bix ---- */
+.alert-box {
+  display: none; /* Hidden initially */
+  position: fixed; /* Overlays the viewport */
+  z-index: 200; /* Above modal */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95); /* Center & slightly smaller for animation */
+  background-color: #f4e1c1;
+  border: 3px solid #2b1b12;
+  border-radius: 12px;
+  padding: 20px 25px;
+  width: 260px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #3b2415;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  opacity: 0; /* Transparent initially */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade & scale */
+}
+
+.alert-box.show {
+  display: block; /* Show box */
+  opacity: 1; /* Fade in */
+  transform: translate(-50%, -50%) scale(1); /* Scale up to full size */
+}
+
+.alert-box p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.alert-box::after {
+  content: "✦"; /* Decorative symbol */
+  display: block;
+  margin-top: 10px;
+  color: #5a3922;
+  font-size: 18px;
+}
+
+/* ---- Next bottom ---- */
+#next-btn {
+  background-color: #3b2f2f;
+  color: #f4e1c1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  transition: background-color 0.3s; /* Smooth hover color change */
+}
+
+#next-btn:hover {
+  background-color: #5a4343; /* Slightly lighter/darker on hover */
+}

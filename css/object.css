@@ -1,0 +1,24 @@
+/*This container acts like a modal overlay for objects. It darkens the screen slightly, centers the image, and ensures the object is on top of all other elements.*/
+.object-container {
+  position: fixed;              /* Fixes the container relative to the viewport, stays on screen when scrolling */
+  top: 50%;                     /* Vertically center in the viewport */
+  left: 50%;                    /* Horizontally center in the viewport */
+  transform: translate(-50%, -50%); /* Adjusts position to center the container exactly (accounting for its own width/height) */
+  z-index: 50;                  /* Puts it above most elements (map, fog, markers) */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background, creates "overlay" effect */
+  padding: 20px;                /* Space inside the container around the image */
+  border-radius: 12px;          /* Rounded corners */
+  display: flex;                /* Uses Flexbox to center the image inside */
+  justify-content: center;      /* Horizontal centering of the content */
+  align-items: center;          /* Vertical centering of the content */
+}
+
+/* ensures it fits on screen even on smaller devices, is visually distinct with a border and shadow, and provides a smooth fade effect when changing pages or closing. */
+.object-image {
+  max-width: 80vw;               /* Image will not be wider than 80% of the viewport width */
+  max-height: 80vh;              /* Image will not be taller than 80% of the viewport height */
+  border: 4px solid #fff;        /* White border around the image for visibility */
+  box-shadow: 0 0 20px rgba(0,0,0,0.7); /* Adds depth/shadow effect */
+  cursor: pointer;               /* Shows a pointer to indicate clickable (for next page) */
+  transition: opacity 0.5s;      /* Smooth fade effect if opacity changes (useful for fade in/out) */
+}

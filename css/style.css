@@ -1,0 +1,49 @@
+/* === BASE LAYOUT SETTINGS === */
+/* Ensure the page uses full viewport height */
+html, body {
+  font-family: Arial, sans-serif;     /* Sets the default font */
+  margin: 0;                          /* Removes default browser margin */
+  padding: 0;                         /* Removes default browser padding */
+  height: 100%;                       /* Makes body take full height of the viewport */
+  overflow: hidden;                   /* Prevents scrolling — locks viewport (important for games) */
+}
+
+/* === MAIN GAME CONTAINER === */
+/* Main container holding the map */
+#game-container {
+  position: relative;                 /* Allows absolute-positioned children (e.g., markers, overlays) */
+  width: 100%;                        /* Takes full horizontal space */
+  height: 100vh;                      /* Full vertical height of the screen */
+  display: flex;                      /* Enables flex layout for child alignment */
+  justify-content: center;            /* Centers map horizontally */
+  align-items: center;                /* Centers map vertically */
+}
+
+/* === RESPONSIVE DESIGN (for mobile devices) === */
+@media (max-width: 768px) {           /* Apply rules when screen width ≤ 768px (tablet/mobile) */
+  #game-container {
+    flex-direction: column;           /* Stack items vertically instead of horizontally */
+  }
+
+  #character-bar img {
+    width: 40px;                      /* Make character portraits smaller */
+    height: 40px;                     /* Keeps them square */
+  }
+
+  #map-container {
+    max-width: 100%;                  /* Make map span full width */
+    height: calc(100vh - 60px);       /* Reduce height to leave space for character bar or UI */
+  }
+}
+
+/* === IMAGE INTERACTION SETTINGS === */
+img {
+  -webkit-user-drag: none;            /* Prevent dragging images (for Chrome/Safari) */
+  user-select: none;                  /* Prevent selecting images as text */
+}
+
+/* === ANIMATION CLASS FOR SMOOTH FADES === */
+.fade-out {
+  opacity: 0;                         /* Fully transparent */
+  transition: opacity 0.5s ease;      /* Smooth fade effect over 0.5 seconds */
+}

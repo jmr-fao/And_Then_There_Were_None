@@ -1,0 +1,5 @@
+.marker {
+  position: absolute; /* Positions each marker based on coordinates inside #map-container */
+  z-index: 10;        /* Ensures markers appear above fog layers and map */
+  cursor: pointer;    /* Indicates interactivity (clickable marker) */
+}
