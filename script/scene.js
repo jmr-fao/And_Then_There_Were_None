@@ -104,11 +104,11 @@ function showRiddle(scene, callback) {
   let currentPage = 0;
 
   const container = document.createElement("div");
-  container.classList.add("object-container");
+  container.classList.add("riddle-container");
 
   const img = document.createElement("img");
   img.src = pages[currentPage];
-  img.classList.add("object-image");
+  img.classList.add("riddle-image");
   container.appendChild(img);
   document.body.appendChild(container);
 

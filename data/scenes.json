@@ -22,12 +22,12 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home1.png",
     "password": "radici",
-    "riddle": "assets/riddle/radici.png",
     "dialogue": [
         {"speaker": "Contessa", "text": "Eccovi nella mia umile abitazione, tutto è a vostra disposizione come se foste a casa vostra."},
         {"speaker": "Contessa", "text": "Vi chiedo la cortesia di lasciare tutti i vostri effetti personali sul tavolo, il custode Paul disporrà i vostri oggetti nelle vostre stanze così che possiate liberarvi da ogni pensiero, e da ogni peso."},
         {"speaker": "Custode", "text": "Gentilissimi commensali, mentre mi trovavo impegnato a riordinar i vostri effetti, ho trovato appesa questa filastrocca che mia nonna aveva l'abitudine di recitare quando ero piccolo, voi ve la ricordate?"}
-    ]
+    ],
+    "riddle": "assets/riddle/radici.png"
   },
   {
     "id": "radici",
@@ -64,7 +64,8 @@
     "dialogue": [
       {"speaker": "Giudice", "text": "[Sottovoce] Il giudizio, signori… a volte arriva prima della chiamata."},
       {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
-    ]
+    ],
+    "riddle": "assets/riddle/parcheggio.png"
   },
   {
     "id": "parcheggio",
@@ -78,7 +79,8 @@
         {"speaker": "Segretaria", "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
         {"speaker": "Dottore", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
         {"speaker": "Giornalista", "text": "Mi ritorna in mente un fatto di cronaca di qualche anno fa… Un incidente… due donne, un auto, l'alcol nel sangue. La dinamica era identica a quella del verbale di Scotland Yard…"}
-    ]
+    ],
+    "riddle": "assets/riddle/ingegnere.png"
   },
   {
     "id": "verbale",
@@ -94,7 +96,8 @@
         {"speaker": "Avvocato", "text": "Signori, ho provato a comunicare con la radio, ma ovviamente non vuole saperne di rispondere. Ho provato più volte: solo rumore bianco… come se qualcuno avesse tagliato i fili."},
         {"speaker": "Manager", "text": "Prima, mi ero allontanato per esplorare un po' i confini dell'isola. Da quella parte, oltre la scogliera, dovrebbe esserci un vecchio telegrafo. Forse potremmo tentare con quello. Sempre che qualcuno non abbia deciso di… zittire anche quello."},
         {"speaker": "Giudice", "text": "[lentamente, con calma gelida] Il silenzio, signori, è una forma di verità. E quest'isola… non ama chi parla troppo."}
-    ]
+    ],
+    "riddle": "assets/riddle/casa2.png"
   },
   {
     "id": "casa2",
@@ -103,6 +106,7 @@
     "unlocked": false,
     "next_scene": "ponte",
     "icon": "assets/icons/home2.png",
+    "object": ["assets/objects/impronta_digitale.png", "assets/objects/biglietto_rossetto.png"],
     "password": "ponte",
     "dialogue": [
         {"speaker": "Giudice", "text": "Penso che la situazione sia chiara a tutti, miei cari compagni. In questa casa non ci sono più padroni né ospiti. Ci sono solo imputati. E il processo è già iniziato."},
@@ -112,7 +116,8 @@
         {"speaker": "Dottore", "text": "Mi chiedo se, per una volta nella mia vita, non mi toccherà curare anche le mie ferite… oltre a quelle degli altri."},
         {"speaker": "Custode", "text": "Compagni… purtroppo anche il telegrafo è fuori uso. Ho controllato i cavi, sono tagliati."},
         {"speaker": "Custode", "text": "Potremmo provare un altro tentativo al faro, forse là c'è ancora un vecchio trasmettitore."}
-    ]
+    ],
+    "riddle": "assets/riddle/ponte_vecchio.png"
   },
   {
     "id": "ponte",
@@ -134,7 +139,8 @@
         {"speaker": "Poliziotto", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi."},
         {"speaker": "Poliziotto", "text": "[pensiero] E' ancora carica con i tre proiettili…"},
         {"speaker": "Custode", "text": "Anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
-    ]
+    ],
+    "riddle": "assets/riddle/luperini.png"
   },
   {
     "id": "luperini",
@@ -143,6 +149,7 @@
     "unlocked": false,
     "next_scene": "referto",
     "icon": "assets/icons/sandwich1.png",
+    "object": ["assets/objects/tramezzini.png"],
     "password": "",
     "dialogue": [
         {"speaker": "Giornalista", "text": "Sono offuscata dalla mia stessa mente, non so più fidarmi del mio giudizio. Ero sicura fosse Jefferson dall'inizio."},
@@ -158,6 +165,7 @@
     "unlocked": false,
     "next_scene": "tazio",
     "icon": "assets/icons/referto1.png",
+    "object": ["assets/objects/police_report.png"],
     "password": "",
     "dialogue": [
         {"speaker": "Poliziotto", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}

@@ -1,0 +1,81 @@
+/* === RIDDLE CONTAINER (Overlay) === */
+.riddle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 60; /* higher than other overlays */
+  background: rgba(25, 15, 5, 0.85); /* dark brown overlay */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* start at top for scrollable content */
+  overflow-y: auto; /* enable vertical scroll if content is tall */
+  padding: 40px 0;
+  box-sizing: border-box;
+  animation: riddleFadeIn 0.8s ease-out;
+  backdrop-filter: blur(3px); /* soft background blur */
+}
+
+/* === RIDDLE IMAGE (Scroll Style) === */
+.riddle-image {
+  max-width: 90vw;
+  max-height: none; /* allow tall riddles to scroll */
+  border: 10px solid #c7a86f; /* golden parchment frame */
+  border-image: linear-gradient(to bottom, #d9b77c, #b0894f) 1;
+  border-radius: 6px;
+  background: #fdf6e3; /* parchment tone */
+  box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(140,100,40,0.4);
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.5s ease;
+  animation: scrollAppear 1s ease-out forwards;
+}
+
+/* Gentle zoom when hovered */
+.riddle-image:hover {
+  transform: scale(1.02);
+}
+
+/* === ANIMATIONS === */
+
+/* Overlay fade in */
+@keyframes riddleFadeIn {
+  from {
+    opacity: 0;
+    background: rgba(25, 15, 5, 0);
+  }
+  to {
+    opacity: 1;
+    background: rgba(25, 15, 5, 0.85);
+  }
+}
+
+/* Scroll unfolding animation */
+@keyframes scrollAppear {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.2) rotateX(30deg);
+    transform-origin: top center;
+  }
+  60% {
+    opacity: 1;
+    transform: scaleY(1.05) rotateX(0deg);
+  }
+  100% {
+    transform: scaleY(1) rotateX(0deg);
+  }
+}
+
+/* Optional custom scrollbar (fits the theme) */
+.riddle-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.riddle-container::-webkit-scrollbar-thumb {
+  background: #b0894f;
+  border-radius: 6px;
+}
+
+.riddle-container::-webkit-scrollbar-track {
+  background: rgba(60,40,20,0.6);
+}
