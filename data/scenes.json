@@ -22,6 +22,7 @@
     "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home1.png",
     "password": "radici",
+    "riddle": "assets/riddle/radici.png",
     "dialogue": [
         {"speaker": "Contessa", "text": "Eccovi nella mia umile abitazione, tutto è a vostra disposizione come se foste a casa vostra."},
         {"speaker": "Contessa", "text": "Vi chiedo la cortesia di lasciare tutti i vostri effetti personali sul tavolo, il custode Paul disporrà i vostri oggetti nelle vostre stanze così che possiate liberarvi da ogni pensiero, e da ogni peso."},

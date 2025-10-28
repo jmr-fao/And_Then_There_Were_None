@@ -47,8 +47,11 @@ function addMarker(scene) {
 }
 
 function startScene(scene) {
-  // Show object (if any), then dialogue
-  showObject(scene, () => startDialogue(scene));
+  if (scene.object) {
+    showObject(scene.object, () => startDialogue(scene));
+  } else {
+    startDialogue(scene);
+  }
 }
 
 // show object
@@ -90,6 +93,40 @@ function showObject(scene, callback) {
   });
 }
 
+// show riddle
+function showRiddle(scene, callback) {
+  if (!scene.riddle) {
+    callback();
+    return;
+  }
+
+  const pages = Array.isArray(scene.riddle) ? scene.riddle : [scene.riddle];
+  let currentPage = 0;
+
+  const container = document.createElement("div");
+  container.classList.add("object-container");
+
+  const img = document.createElement("img");
+  img.src = pages[currentPage];
+  img.classList.add("object-image");
+  container.appendChild(img);
+  document.body.appendChild(container);
+
+  img.addEventListener("click", () => {
+    currentPage++;
+    if (currentPage < pages.length) {
+      img.src = pages[currentPage];
+    } else {
+      container.classList.add("fade-out");
+      setTimeout(() => {
+        container.remove();
+        callback();
+      }, 500);
+    }
+  });
+}
+
+
 // Show dialogue sequence for a scene
 let currentDialogueIndex = 0;
 let currentScene = null;
@@ -124,7 +161,6 @@ function startDialogue(scene) {
   showNextDialogueLine();
 }
 
-
 // Show the next line of dialogue
 function showNextDialogueLine() {
   if (!currentScene) return;
@@ -133,14 +169,26 @@ function showNextDialogueLine() {
   
   // End of dialogue
   if (!dialogue) {
-    // If a password is required for the next scene
-    if (currentScene.next_scene) {
-      checkPasswordAndUnlock(currentScene);
-    }
-    document.getElementById("dialogue-box").style.display = "none";
+  document.getElementById("dialogue-box").style.display = "none";
+
+  // Keep a reference before nullifying
+  const thisScene = currentScene;
+
+  if (thisScene.next_scene && thisScene.riddle) {
+    showRiddle(thisScene, () => {
+      checkPasswordAndUnlock(thisScene);
+      currentScene = null; // only clear AFTER the callback
+    });
+  } else if (thisScene.next_scene) {
+    checkPasswordAndUnlock(thisScene);
     currentScene = null;
-    return;
+  } else {
+    currentScene = null;
   }
+
+  return;
+}
+
 
   // Create bubble
   const bubble = document.createElement("div");
@@ -188,7 +236,6 @@ function showNextDialogueLine() {
   currentDialogueIndex++;
 }
 
-
 // Typing animation
 function typeText(text, elem, callback) {
   let index = 0;
@@ -229,8 +276,7 @@ document.getElementById("next-btn").onclick = () => {
   } else {
     showNextDialogueLine();
   }
-};
-
+}
 
 // unlock next scene
 function checkPasswordAndUnlock(scene) {
