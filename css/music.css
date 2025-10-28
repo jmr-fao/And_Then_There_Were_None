@@ -1,0 +1,16 @@
+#music-controls button {
+  background-color: #3b2f2f;      /* dark reddish background */
+  color: #f4e1c1;                 /* light text color */
+  border: none;                    /* remove default border */
+  border-radius: 6px;              /* rounded corners */
+  padding: 6px 12px;               /* spacing inside button */
+  cursor: pointer;                 /* pointer on hover */
+  font-family: inherit;            /* same font as container */
+  font-size: 1em;                  /* consistent size */
+  margin: 0 4px;                   /* small spacing between buttons */
+  transition: background-color 0.2s ease-in-out;
+}
+
+#music-controls button:hover {
+  background-color: #5a4343;       /* slightly lighter on hover */
+}

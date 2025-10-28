@@ -1,0 +1,27 @@
+/* Full-screen welcome overlay with fog background */
+#welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/fog/fog_a.png') no-repeat center center;
+  background-size: cover; /* make it cover entire screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 5s ease;
+}
+
+/* Welcome text styling */
+#welcome-text {
+  font-family: 'Cinzel', serif; /* elegant, fantasy-style font */
+  font-size: 5vw;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 2px 2px 8px black; /* adds depth and readability */
+  text-align: center;
+  padding: 20px;
+}

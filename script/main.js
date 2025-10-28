@@ -8,6 +8,25 @@ const nextBtn = document.getElementById("next-btn");
 const baseMapWidth = 1188;   // original map pixel width
 const baseMapHeight = 1126;  // original map pixel height
 
+
+// Welcoming message
+window.addEventListener('load', () => {
+  const overlay = document.getElementById('welcome-overlay');
+
+  const removeOverlay = () => {
+    overlay.style.transition = 'opacity 2.5s ease'; // slower fade
+    overlay.style.opacity = 0; // fade out
+    setTimeout(() => overlay.remove(), 2500); // remove after transition
+  };
+
+  // Fade out on any click/tap
+  overlay.addEventListener('click', removeOverlay);
+  overlay.addEventListener('touchstart', removeOverlay);
+});
+
+
+
+
 // Create fog elements
 // Fog images
 const fogBottom = document.createElement("img");
