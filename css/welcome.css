@@ -12,7 +12,6 @@
   align-items: center;
   z-index: 1000;
   opacity: 1;
-  transition: opacity 5s ease;
 }
 
 /* Welcome text styling */

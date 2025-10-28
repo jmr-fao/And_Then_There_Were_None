@@ -24,9 +24,6 @@ window.addEventListener('load', () => {
   overlay.addEventListener('touchstart', removeOverlay);
 });
 
-
-
-
 // Create fog elements
 // Fog images
 const fogBottom = document.createElement("img");
