@@ -2,7 +2,7 @@
   {
     "id": "perla_nera",
     "name": "Perla Nera",
-    "coords": [495, 516],
+    "coords": [520, 516],
     "unlocked": true,
     "next_scene": "casa1",
     "icon": "assets/icons/ship1.png",
@@ -16,7 +16,7 @@
   {
     "id": "casa1",
     "name": "Casa",
-    "coords": [554, 502],
+    "coords": [575, 500],
     "unlocked": false,
     "next_scene": "radici",
     "fog": "assets/fog/fog_scene.png",
@@ -31,7 +31,7 @@
   {
     "id": "radici",
     "name": "Radici",
-    "coords": [564, 566],
+    "coords": [575, 560],
     "unlocked": false,
     "next_scene": "diario",
     "icon": "assets/icons/whiskey1.png",
@@ -50,12 +50,16 @@
    {
     "id": "diario",
     "name": "Diario",
-    "coords": [574, 566],
+    "coords": [590, 560],
     "unlocked": false,
     "next_scene": "parcheggio",
     "icon": "assets/icons/diary1.png",
     "password": "parcheggio",
-    "object": "assets/objects/diario.png",
+    "object": [
+      "assets/objects/diario1.png",
+      "assets/objects/diario2.png",
+      "assets/objects/diario3.png"
+    ],
     "dialogue": [
       {"speaker": "Giudice", "text": "[Sottovoce] Il giudizio, signori… a volte arriva prima della chiamata."},
       {"speaker": "Custode", "text": "Miei gentili commensali, comprendo la vostra agitazione… ma credo sia doveroso comunicarvi che da qualche parte dovrebbe esserci una radio. Potremmo usarla per contattare qualcuno e segnalare l'accaduto. Se non ricordo male… dovrebbe trovarsi proprio lì."}
@@ -64,7 +68,7 @@
   {
     "id": "parcheggio",
     "name": "Parcheggio",
-    "coords": [198, 502],
+    "coords": [310, 500],
     "unlocked": false,
     "next_scene": "verbale",
     "icon": "assets/icons/carriage1.png",
@@ -78,10 +82,11 @@
   {
     "id": "verbale",
     "name": "Verbale",
-    "coords": [218, 502],
+    "coords": [330, 500],
     "unlocked": false,
     "next_scene": "casa2",
     "icon": "assets/icons/referto1.png",
+    "object": ["assets/objects/police_report.png"],
     "password": "casa2",
     "dialogue": [
         {"speaker": "Giornalista", "text": "[Pensiero] Ma… non sarà lo stesso incidente?! Io… potrei aver confuso le vittime. E se la conducente ubriaca non fosse stata lei… ma l'altra? Dio mio…"},
@@ -93,7 +98,7 @@
   {
     "id": "casa2",
     "name": "Casa (2ª visita)",
-    "coords": [580, 522],
+    "coords": [590, 500],
     "unlocked": false,
     "next_scene": "ponte",
     "icon": "assets/icons/home2.png",
@@ -111,7 +116,7 @@
   {
     "id": "ponte",
     "name": "Ponte Vecchio",
-    "coords": [1020, 584],
+    "coords": [910, 585],
     "unlocked": false,
     "next_scene": "luperini",
     "icon": "assets/icons/lighthouse1.png",
@@ -133,7 +138,7 @@
   {
     "id": "luperini",
     "name": "Luperini",
-    "coords": [738, 394],
+    "coords": [710, 394],
     "unlocked": false,
     "next_scene": "referto",
     "icon": "assets/icons/sandwich1.png",
@@ -148,7 +153,7 @@
   {
     "id": "referto",
     "name": "Referto",
-    "coords": [748, 394],
+    "coords": [740, 395],
     "unlocked": false,
     "next_scene": "tazio",
     "icon": "assets/icons/referto1.png",
@@ -160,7 +165,7 @@
   {
     "id": "tazio",
     "name": "Molo Tazio",
-    "coords": [1100, 440],
+    "coords": [940, 440],
     "unlocked": false,
     "next_scene": "Salvezza?",
     "icon": "assets/icons/ship2.png",

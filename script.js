@@ -169,7 +169,7 @@ function addMarker(scene) {
   marker.style.top = `${yPct}%`;
   marker.style.transform = "translate(-50%, -50%)"; // center the icon
   
-  marker.addEventListener("click", () => startScene(scene));
+  marker.addEventListener("click", () => showObject(scene, () => startDialogue(scene)));
 
   mapContainer.appendChild(marker);
 }
@@ -181,26 +181,41 @@ function startScene(scene) {
 
 // show object
 function showObject(scene, callback) {
-  const container = document.getElementById('object-container');
-  const img = document.getElementById('object-image');
-
   if (!scene.object) {
     // no object → start dialogue immediately
     callback();
     return;
   }
 
-  img.src = scene.object;
-  container.classList.add('visible');
+  // Make sure we treat a single string as an array
+  const pages = Array.isArray(scene.object) ? scene.object : [scene.object];
+  let currentPage = 0;
 
-  const onClick = () => {
-    container.classList.remove('visible');
-    container.removeEventListener('click', onClick);
-    // wait for fade-out
-    setTimeout(() => callback(), 500);
-  };
+  const container = document.createElement("div");
+  container.classList.add("object-container");
 
-  container.addEventListener('click', onClick);
+  const img = document.createElement("img");
+  img.src = pages[currentPage];
+  img.classList.add("object-image");
+  container.appendChild(img);
+  document.body.appendChild(container);
+
+  // Click to go to next page or close
+  img.addEventListener("click", () => {
+    currentPage++;
+
+    if (currentPage < pages.length) {
+      // show next page
+      img.src = pages[currentPage];
+    } else {
+      // end of diary: fade out + callback
+      container.classList.add("fade-out");
+      setTimeout(() => {
+        container.remove();
+        callback();
+      }, 500);
+    }
+  });
 }
 
 // Show dialogue sequence for a scene
