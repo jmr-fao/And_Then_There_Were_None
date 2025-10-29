@@ -126,7 +126,6 @@ function showRiddle(scene, callback) {
   });
 }
 
-
 // Show dialogue sequence for a scene
 let currentDialogueIndex = 0;
 let currentScene = null;
@@ -134,7 +133,6 @@ let isTyping = false;
 let typingTimeout = null;
 let lastSpeaker = null;
 const speakerSides = {}; // help reset each scene and store sides for each speaker globally
-
 
 // Start dialogue
 function startDialogue(scene) {
@@ -169,26 +167,25 @@ function showNextDialogueLine() {
   
   // End of dialogue
   if (!dialogue) {
-  document.getElementById("dialogue-box").style.display = "none";
+    document.getElementById("dialogue-box").style.display = "none";
 
-  // Keep a reference before nullifying
-  const thisScene = currentScene;
+    // Keep a reference before nullifying
+    const thisScene = currentScene;
 
-  if (thisScene.next_scene && thisScene.riddle) {
-    showRiddle(thisScene, () => {
+    if (thisScene.next_scene && thisScene.riddle) {
+      showRiddle(thisScene, () => {
+        checkPasswordAndUnlock(thisScene);
+        currentScene = null; // only clear AFTER the callback
+      });
+    } else if (thisScene.next_scene) {
       checkPasswordAndUnlock(thisScene);
-      currentScene = null; // only clear AFTER the callback
-    });
-  } else if (thisScene.next_scene) {
-    checkPasswordAndUnlock(thisScene);
-    currentScene = null;
-  } else {
-    currentScene = null;
+      currentScene = null;
+    } else {
+      currentScene = null;
+    }
+
+    return;
   }
-
-  return;
-}
-
 
   // Create bubble
   const bubble = document.createElement("div");
