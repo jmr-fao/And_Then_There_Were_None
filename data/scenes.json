@@ -43,7 +43,7 @@
     "password": "",
     "dialogue": [
         {"speaker": "Iren", "text": "Non capisco cosa sia successo, dunque quell'uomo è morto?"},
-        {"speaker": "Minni", "text": "Sembra proprio di si mia cara milady. Lascio esprimere l'ultimo verdetto al dottore."},
+        {"speaker": "Mimmi", "text": "Sembra proprio di si mia cara milady. Lascio esprimere l'ultimo verdetto al dottore."},
         {"speaker": "Andrew", "text": "Battito assente, respiro inesistente, segni iniziali di decomposizione: il nostro amico è stato richiamato dal principale in paradiso."},
         {"speaker": "Diego", "text": "Chissà se effettivamente vada in paradiso sir. Mi ricordo tempo addietro di aver dovuto giudicare un prete su alcune sue condotte... diciamo non propriamente spirituali."},
         {"speaker": "Diego", "text": "Forse questo è il giudizio divino che spetta ai finti servitori come lui!"},
@@ -61,9 +61,14 @@
     "icon": "assets/icons/diary1.png",
     "password": "parcheggio",
     "object": [
-      "assets/objects/diario1.png",
-      "assets/objects/diario2.png",
-      "assets/objects/diario3.png"
+      "assets/objects/diario_cover.png",
+      "assets/objects/diario_14feb.png",
+      "assets/objects/diario_21mar.png",
+      "assets/objects/diario_30mag.png",
+      "assets/objects/diario_27mar.png",
+      "assets/objects/diario_18apr.png",
+      "assets/objects/diario_12giu.png",
+      "assets/objects/diario_end.png"
     ],
     "dialogue": [
       {"speaker": "Diego", "text": "[Sottovoce] Il giudizio, signori… a volte arriva prima della chiamata."},
@@ -115,8 +120,8 @@
     "dialogue": [
         {"speaker": "Diego", "text": "Penso che la situazione sia chiara a tutti, miei cari compagni. In questa casa non ci sono più padroni né ospiti. Ci sono solo imputati. E il processo è già iniziato."},
         {"speaker": "Alex", "text": "Vorrà dire che saremo tutti vittime dello stesso giudizio. E allora, signor Giudice, non ci resta che prepararci… a recitare la nostra arringa finale."},
-        {"speaker": "Minni", "text": "Non sono uno che si arrende così facilmente, la mia arringa di sicuro non sarà quella finale."},
-        {"speaker": "Minni", "text": "[Pensiero]: avevo con me la mia rivoltella, dove diavolo è andata a finire?"},
+        {"speaker": "Mimmi", "text": "Non sono uno che si arrende così facilmente, la mia arringa di sicuro non sarà quella finale."},
+        {"speaker": "Mimmi", "text": "[Pensiero]: avevo con me la mia rivoltella, dove diavolo è andata a finire?"},
         {"speaker": "Andrew", "text": "Mi chiedo se, per una volta nella mia vita, non mi toccherà curare anche le mie ferite… oltre a quelle degli altri."},
         {"speaker": "Paul", "text": "Compagni… purtroppo anche il telegrafo è fuori uso. Ho controllato i cavi, sono tagliati."},
         {"speaker": "Paul", "text": "Potremmo provare un altro tentativo al faro, forse là c'è ancora un vecchio trasmettitore."}
@@ -134,14 +139,14 @@
     "dialogue": [
         {"speaker": "Paul", "text": "Avete sentito anche voi questo rumore? Sembrava… un oggetto pesante cadere nel fiume."},
         {"speaker": "Iren", "text": "Comincio a credere che qualcuno di noi stia impazzendo. O forse… lo siamo già tutti."},
-        {"speaker": "Minni", "text": "No, signora, non è follia. Credo proprio che quel qualcuno ci voglia uccidere, uno ad uno."},
+        {"speaker": "Mimmi", "text": "No, signora, non è follia. Credo proprio che quel qualcuno ci voglia uccidere, uno ad uno."},
         {"speaker": "Alex", "text": "Negli occhi dei giustizieri si legge sempre la bramosia di voler fare giustizia a modo proprio, mi sto per caso sbagliando sir. Mimmi?"},
-        {"speaker": "Minni", "text": "Un assassino agisce in base ad una giustizia distorta, mio caro Alex. La mia, di giustizia, opera solo per servire la legge."},
+        {"speaker": "Mimmi", "text": "Un assassino agisce in base ad una giustizia distorta, mio caro Alex. La mia, di giustizia, opera solo per servire la legge."},
         {"speaker": "Paul", "text": "A proposito di giustizia... non vi sembra che manchi qualcuno? Il giudice Magrarthur non è più con noi!"},
         {"speaker": "Andrew", "text": "Amici, eccomi in corsa per annunciarvi un'altra deplorevole sparizione. Il giudice è morto, ho trovato il corpo sulla riva del fiume con un segno di arma da fuoco in testa. Purtroppo nella foga della situazione, ho fatto scivolare il corpo tra le acque che l'hanno trasportato via, sicuramente in un luogo più accogliente di questo."},
         {"speaker": "Andrew", "text": "Sono riuscito a recuperare l'arma del delitto, era accanto al cadavere."},
-        {"speaker": "Minni", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi."},
-        {"speaker": "Minni", "text": "[pensiero] E' ancora carica con i tre proiettili…"},
+        {"speaker": "Mimmi", "text": "Ma quella è la mia rivoltella! L'assassino è riuscito a prenderla senza che me ne accorgessi."},
+        {"speaker": "Mimmi", "text": "[pensiero] E' ancora carica con i tre proiettili…"},
         {"speaker": "Paul", "text": "Anche stavolta, signori, abbiamo fatto… un buco nell'acqua. Il telefono non funziona più, i fili sono stati tagliati. Non ci resta che tentare di raggiungere il villaggio, sempre che la gentile Contessa U.N. Owen non sia stata così premurosa da garantirci un soggiorno privo di ogni… distrazione."}    
     ],
     "riddle": "assets/riddle/luperini.png"
@@ -172,7 +177,7 @@
     "object": ["assets/objects/police_report.png"],
     "password": "",
     "dialogue": [
-        {"speaker": "Minni", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}
+        {"speaker": "Mimmi", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}
     ]
   },
   {
