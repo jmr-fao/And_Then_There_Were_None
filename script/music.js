@@ -3,7 +3,7 @@ class MusicPlayer {
     this.tracks = tracks;
     this.audio = new Audio();
     this.audio.volume = options.volume ?? 0.5;
-    this.shuffle = options.shuffle ?? false;
+    this.shuffle = options.shuffle ?? true;
     this.currentTrack = 0;
     this.started = false;
     this.muted = false;
@@ -56,6 +56,10 @@ class MusicPlayer {
 }
 
 const tracks = [
+  'assets/music/Halloween-Trap-Music.mp3',
+  'assets/music/This-Is-Halloween.mp3',
+  'assets/music/Horror-Music.mp3',
+  'assets/music/Halloween-Music.mp3',
   'assets/music/Come-Out-And-Play.mp3',
   'assets/music/Come-Play-with-Me.mp3',
   'assets/music/Demented-Nightmare.mp3',
