@@ -1,40 +1,69 @@
 .music-controls {
   position: fixed;
-  right: 20px;     /* distance from the right edge */
-  bottom: 100px;   /* distance from the bottom */
+  right: 2vw;               /* relative to viewport width */
+  bottom: 10vh;             /* relative to viewport height */
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column;
   align-items: center;
-  gap: 8px;        /* space between buttons */
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
+  gap: 1em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 1em;
+  backdrop-filter: blur(6px);
+  z-index: 1000;            /* always on top */
 }
 
-#music-controls button {
-  background-color: #3b2f2f;      /* dark reddish background */
-  color: #f4e1c1;                 /* light text color */
-  border: none;                    /* remove default border */
-  border-radius: 6px;              /* rounded corners */
-  padding: 5px 9px;               /* spacing inside button */
-  cursor: pointer;                 /* pointer on hover */
-  font-family: inherit;            /* same font as container */
-  font-size: 0.5em;                  /* consistent size */
-  margin: 0 4px;                   /* small spacing between buttons */
-  transition: background-color 0.2s ease-in-out;
-}
-
-#music-controls button:hover {
-  background-color: #5a4343;       /* slightly lighter on hover */
-}
-
-/* Volume slider vertical */
-#volume-slider {
-  -webkit-appearance: slider-vertical; /* Chrome/Safari */
-  writing-mode: bt-lr;                /* Firefox/Edge */
-  width: 8px;
-  height: 80px;
-  accent-color: #d4af37;              /* gold-like thumb color */
+/* Buttons */
+.music-controls button {
+  background-color: #3b2f2f;
+  color: #f4e1c1;
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 1.2em;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-controls button:hover {
+  background-color: #5a4343;
+  transform: scale(1.1);
+}
+
+/* Volume slider */
+#volume-slider {
+  -webkit-appearance: slider-vertical;
+  writing-mode: bt-lr;
+  width: 1em;
+  height: 12vh;
+  accent-color: #d4af37; /* gold */
+  cursor: pointer;
+}
+
+/* ✅ Responsive for small screens */
+@media (max-width: 600px) {
+  .music-controls {
+    flex-direction: row;   /* horizontal on mobile */
+    right: 50%;
+    bottom: 3vh;
+    transform: translateX(50%);
+    padding: 0.5em 0.8em;
+  }
+
+  #volume-slider {
+    height: 6vh;
+    width: 20vw;
+    -webkit-appearance: none; /* flatten slider for horizontal */
+    writing-mode: lr-tb;
+  }
+
+  .music-controls button {
+    width: 2.2em;
+    height: 2.2em;
+    font-size: 1em;
+  }
 }

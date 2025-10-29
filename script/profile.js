@@ -4,16 +4,16 @@ const profileOverlay = document.getElementById("profile-overlay");
 const profileImg = document.getElementById("profile-img");
 
 const characters = [
-  "Avvocato",
-  "Custode",
-  "Dottore",
-  "Giornalista",
-  "Giudice",
-  "Ingegnere",
-  "Manager",
-  "Poliziotto",
-  "Prete",
-  "Segretaria"
+  "Alex",
+  "Paul",
+  "Andrew",
+  "Gaja",
+  "Diego",
+  "Jessica",
+  "Iren",
+  "Mimmi",
+  "Raphael",
+  "Julie"
 ];
 
 // Add small portraits to the bar
