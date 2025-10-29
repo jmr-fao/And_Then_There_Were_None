@@ -26,12 +26,17 @@
   </div>
 
   <!-- Music controls -->
-  <div id="music-controls" style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 8px 12px; border-radius: 8px; font-family: sans-serif; z-index: 200;">
-    <div id="current-track">Track: -</div>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.4">
-    <button id="mute-btn">Mute</button>
-    <!-- <button id="prev-btn">⏮️ Prev</button>-->
-    <button id="next-trck">⏭️ Next</button>
+  <div class="music-controls">
+    <input 
+      type="range" 
+      id="volume-slider" 
+      min="0" 
+      max="1" 
+      step="0.01" 
+      value="0.4" 
+      orient="vertical">
+    <button id="play-pause">⏯</button>
+    <button id="next-trck">⏭</button>
   </div>
 
   <!-- Portrait bar above map -->

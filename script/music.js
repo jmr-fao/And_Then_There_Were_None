@@ -102,6 +102,6 @@ if (muteBtn) {
   });
 }
 
-// Next / Previous buttons
+// Next & Previous buttons
 document.getElementById('next-trck').addEventListener('click', () => player.playNext());
-document.getElementById('prev-trck').addEventListener('click', () => player.playPrev());
+//document.getElementById('prev-trck').addEventListener('click', () => player.playPrev());

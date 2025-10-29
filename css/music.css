@@ -1,16 +1,40 @@
+.music-controls {
+  position: fixed;
+  right: 20px;     /* distance from the right edge */
+  bottom: 100px;   /* distance from the bottom */
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;
+  gap: 8px;        /* space between buttons */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
 #music-controls button {
   background-color: #3b2f2f;      /* dark reddish background */
   color: #f4e1c1;                 /* light text color */
   border: none;                    /* remove default border */
   border-radius: 6px;              /* rounded corners */
-  padding: 6px 12px;               /* spacing inside button */
+  padding: 5px 9px;               /* spacing inside button */
   cursor: pointer;                 /* pointer on hover */
   font-family: inherit;            /* same font as container */
-  font-size: 1em;                  /* consistent size */
+  font-size: 0.5em;                  /* consistent size */
   margin: 0 4px;                   /* small spacing between buttons */
   transition: background-color 0.2s ease-in-out;
 }
 
 #music-controls button:hover {
   background-color: #5a4343;       /* slightly lighter on hover */
+}
+
+/* Volume slider vertical */
+#volume-slider {
+  -webkit-appearance: slider-vertical; /* Chrome/Safari */
+  writing-mode: bt-lr;                /* Firefox/Edge */
+  width: 8px;
+  height: 80px;
+  accent-color: #d4af37;              /* gold-like thumb color */
+  cursor: pointer;
 }
