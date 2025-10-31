@@ -170,7 +170,7 @@
     "next_scene": "tazio",
     "icon": "assets/icons/referto2.png",
     "object": ["assets/objects/referto.png"],
-    "password": "fine",
+    "password": "",
     "dialogue": [
         {"speaker": "Mimmi", "text": "Amici, avete sentito anche voi questo suono? E' la dolce melodia di una nave che attracca. Corriamo al molo TAZIO, a questo punto del castigo, possiamo ancora chiedere pietà al Signore se ci ascolterà, saremo salvi, altrimenti accoglieremo il suo giudizio finale."}
     ]
