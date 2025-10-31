@@ -23,7 +23,6 @@
     "coords": [575, 500],
     "unlocked": false,
     "next_scene": "radici",
-    "fog": "assets/fog/fog_scene.png",
     "icon": "assets/icons/home1.png",
     "password": "radici",
     "dialogue": [
@@ -31,7 +30,7 @@
         {"speaker": "U.N. Owen", "text": "Vi chiedo la cortesia di lasciare tutti i vostri effetti personali sul tavolo, il custode Paul disporrà i vostri oggetti nelle vostre stanze così che possiate liberarvi da ogni pensiero, e da ogni peso."},
         {"speaker": "Paul",      "text": "Gentilissimi commensali, mentre mi trovavo impegnato a riordinar i vostri effetti, ho trovato appesa questa filastrocca che mia nonna aveva l'abitudine di recitare quando ero piccolo, voi ve la ricordate?"}
     ],
-    "riddle": "assets/riddle/radici.png"
+    "riddle": "assets/riddle/10indiani.png"
   },
   {
     "id": "radici",
@@ -40,7 +39,7 @@
     "unlocked": false,
     "next_scene": "diario",
     "icon": "assets/icons/whiskey1.png",
-    "password": "",
+    "password": "raphael",
     "dialogue": [
         {"speaker": "Iren",    "text": "Non capisco cosa sia successo, dunque quell'uomo è morto?"},
         {"speaker": "Mimmi",   "text": "Sembra proprio di si mia cara milady. Lascio esprimere l'ultimo verdetto al dottore."},
@@ -82,7 +81,7 @@
     "unlocked": false,
     "next_scene": "verbale",
     "icon": "assets/icons/carriage1.png",
-    "password": "",
+    "password": "jessica",
     "dialogue": [
         {"speaker": "Julie",  "text": "O mio Dio ma il diavolo sta albergando con noi quest'isola!"},
         {"speaker": "Andrew", "text": "Miei compagni di sventure, vi comunico che anche Miss. Brown è stata chiamata ad espiare i suoi peccati."},
@@ -113,7 +112,6 @@
     "unlocked": false,
     "next_scene": "ponte",
     "icon": "assets/icons/home2.png",
-    "object": "assets/objects/biglietto_rossetto.png",
     "password": "ponte",
     "dialogue": [
         {"speaker": "Diego",  "text": "Penso che la situazione sia chiara a tutti, miei cari compagni. In questa casa non ci sono più padroni né ospiti. Ci sono solo imputati. E il processo è già iniziato."},
@@ -156,7 +154,7 @@
     "next_scene": "referto",
     "icon": "assets/icons/sandwich1.png",
     "object": ["assets/objects/tramezzini.png"],
-    "password": "",
+    "password": "andrew",
     "dialogue": [
         {"speaker": "Gaja", "text": "Sono offuscata dalla mia stessa mente, non so più fidarmi del mio giudizio. Ero sicura fosse Jefferson dall'inizio."},
         {"speaker": "Iren", "text": "Mia cara Gaia, la invidio. Almeno lei riesce ancora a chiedersi se la sua testa funzioni. Io, invece, ho smesso di avere una coscienza."},
@@ -187,6 +185,11 @@
     "password": "",
     "dialogue": [
         {"speaker": "", "text": "Quando il tempo finisce, le colpe cadono tutte insieme."}
+    ],
+    "riddle": [
+      "assets/riddle/Verbale finale_1.png",
+      "assets/riddle/Verbale finale_2.png",
+      "assets/riddle/Verbale finale_3.png"
     ]
   }
 ]

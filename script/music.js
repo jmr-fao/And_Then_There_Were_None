@@ -56,15 +56,16 @@ class MusicPlayer {
 }
 
 const tracks = [
-  'assets/music/Halloween-Trap-Music.mp3',
-  'assets/music/This-Is-Halloween.mp3',
-  'assets/music/Horror-Music.mp3',
-  'assets/music/Halloween-Music.mp3',
-  'assets/music/Come-Out-And-Play.mp3',
-  'assets/music/Come-Play-with-Me.mp3',
-  'assets/music/Demented-Nightmare.mp3',
-  'assets/music/Hitman.mp3',
-  'assets/music/Sneaky-Adventure.mp3'
+  'assets/music/Halloween-Theme.mp3',
+  //'assets/music/Halloween-Trap-Music.mp3',
+  //'assets/music/This-Is-Halloween.mp3',
+  'assets/music/Horror-Music.mp3'
+  //'assets/music/Halloween-Music.mp3',
+  //'assets/music/Come-Out-And-Play.mp3',
+  //'assets/music/Come-Play-with-Me.mp3',
+  //'assets/music/Demented-Nightmare.mp3',
+  //'assets/music/Hitman.mp3',
+  //'assets/music/Sneaky-Adventure.mp3'
 ];
 
 const player = new MusicPlayer(tracks, { volume: 0.4, shuffle: true });
