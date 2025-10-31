@@ -24,7 +24,7 @@
   <div id="welcome-overlay">
     <div id="welcome-text">Benvenuti a Pearl Island</div>
     <!--<p>Enter the secret word to continue:</p>-->
-    <input type="password" id="password-input" placeholder="Password">
+    <input type="password" id="password-main" placeholder="Password">
     <button id="enter-btn">Enter</button>
     <p id="error-msg" style="display:none; color: #ffaaaa;">Wrong password!</p>
   </div>
@@ -46,7 +46,7 @@
 
   <div id="main-content" style="display:none;">
     <!-- Portrait bar above map -->
-    <div id="character-bar"></div>
+    <div id="character-bar" style="opacity: 0; transition: opacity 1.5s ease;"></div>
 
     <!-- Enlarged profile overlay -->
     <div id="profile-overlay">
@@ -57,7 +57,7 @@
 
     <!-- Map -->
     <div id="game-container">
-      <div id="map-container" style="position:relative;">
+      <div id="map-container" style="position:relative; opacity: 0; transition: opacity 2s ease;">
         <img id="map" src="assets/map/base_map4.png" alt="Island Map">
       </div>
     </div>

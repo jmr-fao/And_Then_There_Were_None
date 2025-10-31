@@ -11,7 +11,7 @@ const baseMapHeight = 1126;  // original map pixel height
 
 // Welcoming message
 document.getElementById("enter-btn").addEventListener("click", function() {
-  const password = document.getElementById("password-input").value;
+  const password = document.getElementById("password-main").value;
   const correctPassword = "filippo infame"; // 🔒 your password
 
   const welcomeScreen = document.getElementById("welcome-overlay");
@@ -23,14 +23,24 @@ document.getElementById("enter-btn").addEventListener("click", function() {
     welcomeScreen.style.transition = "opacity 2.5s ease";
     welcomeScreen.style.opacity = 0;
 
+    const mapContainer = document.getElementById("map-container");
+    const characterBar = document.getElementById("character-bar");
+
     // After fade finishes, hide and show main content
     setTimeout(() => {
       welcomeScreen.style.display = "none";
+      // Step 1: Fade in the map
+      mapContainer.style.opacity = 1;
+      // Step 2: Fade in the profiles AFTER the map
+      setTimeout(() => {
+        characterBar.style.opacity = 1;
+      }, 1000); // wait for map fade to finish
+
       mainContent.style.display = "block";
 
       // Wait for layout to update, then position fogs
       setTimeout(positionFogs, 100);
-    }, 2500);
+    }, 2000);
   } else {
     errorMsg.style.display = "block";
   }
