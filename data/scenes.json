@@ -54,7 +54,7 @@
    {
     "id": "diario",
     "name": "Diario",
-    "coords": [590, 560],
+    "coords": [600, 560],
     "unlocked": false,
     "next_scene": "parcheggio",
     "icon": "assets/icons/diary1.png",
@@ -91,7 +91,7 @@
   {
     "id": "verbale",
     "name": "Verbale",
-    "coords": [330, 500],
+    "coords": [340, 500],
     "unlocked": false,
     "next_scene": "casa2",
     "icon": "assets/icons/referto1.png",
@@ -108,7 +108,7 @@
   {
     "id": "casa2",
     "name": "Casa (2ª visita)",
-    "coords": [590, 500],
+    "coords": [600, 500],
     "unlocked": false,
     "next_scene": "ponte",
     "icon": "assets/icons/home2.png",
@@ -165,10 +165,10 @@
   {
     "id": "referto",
     "name": "Referto",
-    "coords": [740, 395],
+    "coords": [750, 395],
     "unlocked": false,
     "next_scene": "tazio",
-    "icon": "assets/icons/referto1.png",
+    "icon": "assets/icons/referto2.png",
     "object": ["assets/objects/referto.png"],
     "password": "fine",
     "dialogue": [
@@ -180,13 +180,22 @@
     "name": "Molo Tazio",
     "coords": [940, 440],
     "unlocked": false,
-    "next_scene": "Salvezza?",
+    "next_scene": "confessione",
     "icon": "assets/icons/ship2.png",
-    "password": "",
+    "password": "confessione",
     "dialogue": [
         {"speaker": "", "text": "Quando il tempo finisce, le colpe cadono tutte insieme."}
-    ],
-    "riddle": [
+    ]
+  },
+  {
+    "id": "confessione",
+    "name": "Confessione",
+    "coords": [990, 440],
+    "unlocked": false,
+    "next_scene": "Salvezza?",
+    "icon": "assets/icons/toolbox.png",
+    "password": "",
+    "object": [
       "assets/riddle/Verbale finale_1.png",
       "assets/riddle/Verbale finale_2.png",
       "assets/riddle/Verbale finale_3.png"

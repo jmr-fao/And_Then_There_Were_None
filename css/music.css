@@ -49,14 +49,14 @@
   .music-controls {
     flex-direction: row;   /* horizontal on mobile */
     right: 50%;
-    bottom: 3vh;
+    bottom: 1vh;
     transform: translateX(50%);
     padding: 0.5em 0.8em;
   }
 
   #volume-slider {
-    height: 6vh;
-    width: 20vw;
+    height: 4vh;
+    width: 15vw;
     -webkit-appearance: none; /* flatten slider for horizontal */
     writing-mode: lr-tb;
   }
