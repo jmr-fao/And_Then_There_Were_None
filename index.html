@@ -23,6 +23,10 @@
   <!-- Welcome message -->
   <div id="welcome-overlay">
     <div id="welcome-text">Benvenuti a Pearl Island</div>
+    <!--<p>Enter the secret word to continue:</p>-->
+    <input type="password" id="password-input" placeholder="Password">
+    <button id="enter-btn">Enter</button>
+    <p id="error-msg" style="display:none; color: #ffaaaa;">Wrong password!</p>
   </div>
 
   <!-- Music controls -->
@@ -40,54 +44,56 @@
     <button id="next-track">⏭️</button>
   </div>
 
-  <!-- Portrait bar above map -->
-  <div id="character-bar"></div>
+  <div id="main-content" style="display:none;">
+    <!-- Portrait bar above map -->
+    <div id="character-bar"></div>
 
-  <!-- Enlarged profile overlay -->
-  <div id="profile-overlay">
-    <div class="overlay-content">
-      <img id="profile-img" src="" alt="">
-    </div>
-  </div>
-
-  <!-- Map -->
-  <div id="game-container">
-    <div id="map-container" style="position:relative;">
-      <img id="map" src="assets/map/base_map4.png" alt="Island Map">
-    </div>
-  </div>
-
-    <!-- Object -->
-  <div id="object-container" class="hidden">
-    <img id="object-image" />
-  </div>
-
-  <!-- Dialogo -->
-  <div id="dialogue-box">
-    <div id="dialogue-container" style="display:flex; flex-direction:column; gap:8px;"></div>
-    <button id="next-btn">Avanti</button>
-  </div>
-
-  <!-- Unlock Alert -->
-  <div id="unlock-alert" class="alert-box">
-    <p id="unlock-alert-text"></p>
-  </div>
-
-  <!-- Password Modal -->
-  <div id="password-modal" class="modal">
-    <div class="modal-content">
-      <h3>Parola chiave</h3>
-      <p>Inserisci la parola chiave per sbloccare il prossimo luogo:</p>
-      <input type="text" id="password-input" placeholder="Scrivi qui..." autocomplete="off">
-      <div class="modal-buttons">
-        <button id="password-submit">Conferma</button>
-        <button id="password-cancel">Annulla</button>
+    <!-- Enlarged profile overlay -->
+    <div id="profile-overlay">
+      <div class="overlay-content">
+        <img id="profile-img" src="" alt="">
       </div>
     </div>
+
+    <!-- Map -->
+    <div id="game-container">
+      <div id="map-container" style="position:relative;">
+        <img id="map" src="assets/map/base_map4.png" alt="Island Map">
+      </div>
+    </div>
+
+    <!-- Object -->
+    <div id="object-container" class="hidden">
+      <img id="object-image" />
+    </div>
+
+    <!-- Dialogo -->
+    <div id="dialogue-box">
+      <div id="dialogue-container" style="display:flex; flex-direction:column; gap:8px;"></div>
+      <button id="next-btn">Avanti</button>
+    </div>
+
+    <!-- Unlock Alert -->
+    <div id="unlock-alert" class="alert-box">
+      <p id="unlock-alert-text"></p>
+    </div>
+
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal">
+      <div class="modal-content">
+        <h3>Parola chiave</h3>
+        <p>Inserisci la parola chiave per sbloccare il prossimo luogo:</p>
+        <input type="text" id="password-input" placeholder="Scrivi qui..." autocomplete="off">
+        <div class="modal-buttons">
+          <button id="password-submit">Conferma</button>
+          <button id="password-cancel">Annulla</button>
+        </div>
+      </div>
+    </div>
+    <script src="script/main.js"></script>
+    <script src="script/profile.js"></script>
+    <script src="script/scene.js"></script>
+    <script src="script/music.js"></script>
   </div>
-  <script src="script/main.js"></script>
-  <script src="script/profile.js"></script>
-  <script src="script/scene.js"></script>
-  <script src="script/music.js"></script>
 </body>
 </html>

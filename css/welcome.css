@@ -10,8 +10,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 1000;
   opacity: 1;
+}
+
+#welcome-overlay input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+#welcome-overlay button {
+  margin-top: 10px;
+  padding: 6px 14px;
+  background-color: #3b2f2f;
+  color: #f4e1c1;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 /* Welcome text styling */

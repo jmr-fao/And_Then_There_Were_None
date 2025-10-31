@@ -10,18 +10,30 @@ const baseMapHeight = 1126;  // original map pixel height
 
 
 // Welcoming message
-window.addEventListener('load', () => {
-  const overlay = document.getElementById('welcome-overlay');
+document.getElementById("enter-btn").addEventListener("click", function() {
+  const password = document.getElementById("password-input").value;
+  const correctPassword = "filippo infame"; // 🔒 your password
 
-  const removeOverlay = () => {
-    overlay.style.transition = 'opacity 2.5s ease'; // slower fade
-    overlay.style.opacity = 0; // fade out
-    setTimeout(() => overlay.remove(), 2500); // remove after transition
-  };
+  const welcomeScreen = document.getElementById("welcome-overlay");
+  const mainContent = document.getElementById("main-content");
+  const errorMsg = document.getElementById("error-msg");
 
-  // Fade out on any click/tap
-  overlay.addEventListener('click', removeOverlay);
-  overlay.addEventListener('touchstart', removeOverlay);
+  if (password === correctPassword) {
+    // Start fade-out animation
+    welcomeScreen.style.transition = "opacity 2.5s ease";
+    welcomeScreen.style.opacity = 0;
+
+    // After fade finishes, hide and show main content
+    setTimeout(() => {
+      welcomeScreen.style.display = "none";
+      mainContent.style.display = "block";
+
+      // Wait for layout to update, then position fogs
+      setTimeout(positionFogs, 100);
+    }, 2500);
+  } else {
+    errorMsg.style.display = "block";
+  }
 });
 
 // Create fog elements
